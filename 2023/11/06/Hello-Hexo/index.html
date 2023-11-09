@@ -30,6 +30,8 @@
 
 
 
+<script src="/js/lib/preview.js"></script>
+
 
 
 
@@ -167,7 +169,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/markdown/" style="color: #03a9f4">Markdown</a>
+                <a href="/tags/markdown/" style="color: #00a596">Markdown</a>
             </span>
             
         </span>
@@ -207,6 +209,12 @@
 </footer>
 
         </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
         
     </div>
     <script src="/js/main.js"></script>

@@ -30,6 +30,8 @@
 
 
 
+<script src="/js/lib/preview.js"></script>
+
 
 
 
@@ -172,7 +174,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/test/" style="color: #ff7d73">测试</a>
+                <a href="/tags/test/" style="color: #03a9f4">测试</a>
             </span>
             
         </span>
@@ -225,6 +227,12 @@
 </footer>
 
         </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
         
     </div>
     <script src="/js/main.js"></script>
