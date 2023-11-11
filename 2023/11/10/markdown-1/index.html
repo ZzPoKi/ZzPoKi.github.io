@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Markdown的常用语法 I | PoKi&#39;s Blog</title>
+    <meta name="author" content="PoKi" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.9.0/styles/purebasic.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+<meta name="generator" content="Hexo 7.0.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>POKI&#39;S BLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/images">
+            <i class="fa-solid fa-image fa-fw"></i>
+            <span>&ensp;Pictures</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;POKI&#39;S BLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/images">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-image fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Pictures</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>Markdown的常用语法 I</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/11/10
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>markdown是一个轻量级的标记语言，它可以基于纯文本的形式来对文档进行编辑和修改。<br>这里展示一些markdown的常用语法，方便个人在hexo博客下撰写自己的文章。</p>
+<span id="more"></span>
+
+<h1 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h1><p>如果要在文章中创建标题，应该在标题文字前面添加上对应标题级别的井号<code>#</code>，井号数量从一个到六个分别对应一级到六级标题。<br>比如要创建一个二级标题和四级标题，则对应的markdown写法为：</p>
+<pre><code class="highlight markdown"><span class="section">## 二级标题</span>
+<span class="section">#### 四级标题</span></code></pre>
+
+<p>呈现出来的效果即为：</p>
+<h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><p>另外，markdown还支持使用<code>-</code>和<code>=</code>号来进行标题标识。通过在目标文本下添加任意数量的<code>-</code>或<code>=</code>号，便能够分别标识出对应文本的二级或一级标题。写法举例：</p>
+<pre><code class="highlight markdown"><span class="section">一级标题</span>
+<span class="section">====</span>
+<span class="section">二级标题</span>
+<span class="section">---</span></code></pre>
+
+<p>呈现出来的效果即为：</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2><h1 id="2-段落和换行"><a href="#2-段落和换行" class="headerlink" title="2. 段落和换行"></a>2. 段落和换行</h1><p>要创建新的段落，可以选择在段落之间空一行或多行来进行换行，当然也可以通过在前一行的末尾添加两个或多个空格，然后回车来实现换行。</p>
+<pre><code class="highlight markdown">第一段
+
+第二段</code></pre>
+
+<h1 id="3-粗体和斜体"><a href="#3-粗体和斜体" class="headerlink" title="3. 粗体和斜体"></a>3. 粗体和斜体</h1><h2 id="3-1-粗体"><a href="#3-1-粗体" class="headerlink" title="3.1 粗体"></a>3.1 粗体</h2><p>如果要对文本中的重点词进行加粗，需要在加粗文本前后各添加<strong>两个</strong>星号<code>*</code>或下划线<code>_</code>，但下划线在加粗相连单词或短语的中间部分时并不兼容，所以在文本加粗上应该尽量使用星号<code>*</code>进行加粗。</p>
+<pre><code class="highlight markdown">这是一段<span class="strong">**粗体文本**</span>。</code></pre>
+
+<p>效果如下：</p>
+<p>这是一段<strong>粗体文本</strong>。</p>
+<h2 id="3-2-斜体"><a href="#3-2-斜体" class="headerlink" title="3.2 斜体"></a>3.2 斜体</h2><p>如果要让某段文本斜体化，和加粗文本类似，需要在斜体文本前后各添加<strong>一个</strong>星号<code>*</code>或下划线<code>_</code>，同样考虑到兼容性的问题，在文本斜体化时还是尽量使用星号<code>*</code>来实现。</p>
+<pre><code class="highlight markdown">He is a <span class="emphasis">*gentleman*</span>.</code></pre>
+
+<p>效果如下：</p>
+<p>He is a <em>gentleman</em>.</p>
+<p>另外，如果要使目标文本同时被加粗和斜体化，则需要在文本前后各添加<strong>三个</strong>星号<code>*</code>。</p>
+<pre><code class="highlight markdown">这是一个<span class="strong">**<span class="emphasis">*重点词*</span>**</span>。</code></pre>
+<p>效果如下：</p>
+<p>这是一个<em><strong>重点词</strong></em>。</p>
+<h1 id="4-创建引用"><a href="#4-创建引用" class="headerlink" title="4. 创建引用"></a>4. 创建引用</h1><p>要想创建引用，只需要添加一个<code>&gt;</code>号在被引用文本前。同样被引用文本间在换行时仍然遵循隔行或空格换行的规则。</p>
+<pre><code class="highlight markdown"><span class="quote">&gt; 这是一段被引用文本</span>
+<span class="quote">&gt;</span>
+<span class="quote">&gt; 这是另一段被引用文本</span></code></pre>
+
+<p>效果如下：</p>
+<blockquote>
+<p>这是一段被引用文本</p>
+<p>这是另一段被引用文本</p>
+</blockquote>
+<p>另外文本也可以被多层嵌套引用，只需要在被嵌套引用的文本前多添加一个<code>&gt;</code>即可。</p>
+<pre><code class="highlight markdown"><span class="quote">&gt; 这是主要引用内容</span>
+<span class="quote">&gt;</span>
+<span class="quote">&gt;&gt; 这是附带引用内容</span></code></pre>
+
+<p>效果如下：</p>
+<blockquote>
+<p>这是主要引用内容</p>
+<blockquote>
+<p>这是附带引用内容</p>
+</blockquote>
+</blockquote>
+<h1 id="5-列表"><a href="#5-列表" class="headerlink" title="5. 列表"></a>5. 列表</h1><h2 id="5-1-有序列表"><a href="#5-1-有序列表" class="headerlink" title="5.1 有序列表"></a>5.1 有序列表</h2><p>想要创建有序列表，需要在每个列表项前添加一个数字加一个英文句点<code>.</code>，并以数字1作为列表的起始。</p>
+<p>虽然说markdown在语法上允许以1为起始点后的列表项数可以取任意数，但这里建议编写有序列表时还是尽量让列表数按顺序排列，与呈现效果一致。</p>
+<pre><code class="highlight markdown"><span class="bullet">1.</span> 第一点
+<span class="bullet">2.</span> 第二点
+<span class="bullet">3.</span> 第三点
+<span class="bullet">4.</span> 第四点</code></pre>
+
+<p>效果如下：</p>
+<ol>
+<li>第一点</li>
+<li>第二点 </li>
+<li>第三点</li>
+<li>第四点</li>
+</ol>
+<h2 id="5-2-无序列表"><a href="#5-2-无序列表" class="headerlink" title="5.2 无序列表"></a>5.2 无序列表</h2><p>如果要创建无序列表，需要在每个列表项前添加一个加号<code>+</code>、减号<code>-</code>或者星号<code>*</code>。同时利用缩进可以实现无序列表的嵌套。</p>
+<pre><code class="highlight markdown"><span class="bullet">-</span> 文章背景
+<span class="bullet">-</span> 文章开头
+<span class="bullet">-</span> 文章正文
+<span class="bullet">-</span> 文章总结
+<span class="bullet">    -</span> 拓展内容</code></pre>
+
+<p>效果如下：</p>
+<ul>
+<li>文章背景</li>
+<li>文章开头</li>
+<li>文章正文</li>
+<li>文章总结<ul>
+<li>拓展内容</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>下一篇文章：<a href="">Markdown的常用语法 II</a></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 PoKi&#39;s Blog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;PoKi
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
