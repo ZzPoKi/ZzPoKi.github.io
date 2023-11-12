@@ -214,6 +214,51 @@
 </tr>
 </thead>
 </table>
+<h1 id="4-表格语法"><a href="#4-表格语法" class="headerlink" title="4. 表格语法"></a>4. 表格语法</h1><p>要在文章中添加表格，应该使用三个或以上连字符（减号）<code>-</code>作为每列标题的底，并以分隔符<code>|</code>来分隔每列，在编写时单元格不需要完全一致对齐。写法举例：</p>
+<pre><code class="highlight markdown">| 姓名 | 年龄  | 性别 | 
+| --- |-----|-----|
+| A  | 20  | M   |
+| B  |  19  |  F  |
+|  C |  22 |  F  |</code></pre>
+
+<p>效果如下：</p>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>年龄</th>
+<th>性别</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>20</td>
+<td>M</td>
+</tr>
+<tr>
+<td>B</td>
+<td>19</td>
+<td>F</td>
+</tr>
+<tr>
+<td>C</td>
+<td>22</td>
+<td>F</td>
+</tr>
+</tbody></table>
+<p>而如果分别在标题下连字符的左侧、右侧和两侧添加冒号<code>:</code>，则会使文本对齐到表格左侧、右侧和中间。</p>
+<h1 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h1><p>如果要使文章缩略展示，需要在被缩略的文本前添加上<code>&lt;!--more--&gt;</code>，这样只有在点开全文内容时被缩略文本才会显示出来。</p>
+<p>对于一些被用在markdown语法上的符号，如果要把这些符号本身给显示出来，需要在符号前添加上反斜杠<code>\</code>。</p>
+<p>而要想在文本中添加删除线，则要在目标文本前后各添加两个波浪号<code>~~</code>。</p>
+<pre><code class="highlight markdown">这是一个~~错误信息~~</code></pre>
+
+<p>效果如下：</p>
+<p>这是一个<del>错误信息</del></p>
+<p>此外，markdown完全支持HTML和CSS格式编写，其在插入图片、嵌入链接、调整字体颜色等方面都能够和markdown进行配合使用。比如：</p>
+<pre><code class="highlight html"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;red&quot;</span>&gt;</span>这是一段红色文本<span class="tag">&lt;/<span class="name">font</span>&gt;</span></code></pre>
+
+<p>效果如下：</p>
+<p><font color="red">这是一段红色文本</font></p>
 
     </div>
     
