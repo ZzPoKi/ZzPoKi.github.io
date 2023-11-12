@@ -146,7 +146,62 @@
     </div>
     
     <div class="content" v-pre>
-        
+        <p>上一篇文章：<a href="/2023/11/10/markdown-1">Markdown的常用语法 I</a></p>
+<span id="more"></span>
+
+<h1 id="1-代码表示"><a href="#1-代码表示" class="headerlink" title="1. 代码表示"></a>1. 代码表示</h1><p>要想把文本中的某个部分以代码的形式表示出来，需要在文本的前后添加各一个反引号<code>`</code>使其被包裹起来。当部分其中本身含有反引号时，则需要前后各添加两个反引号来进行包裹。</p>
+<pre><code class="highlight markdown"><span class="code">`markdown`</span>是一种轻量级的标记语言</code></pre>
+
+<p>效果如下：</p>
+<p><code>markdown</code>是一种轻量级的标记语言</p>
+<p>而想要把代码块给整段以代码形式表现出来，可以采用围栏式代码块的方式来实现。将需要被代码表示的代码块的前后分别用三个反引号<code>```</code>将代码块给包裹起来，可以在代码块前的反引号后通过指定代码的语言类型来实现代码的语法高亮。</p>
+<p>比如：</p>
+<pre><code class="highlight java"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">searchFile</span><span class="params">(String fileName, File dir)</span> &#123;
+    <span class="keyword">if</span> (dir != <span class="literal">null</span> &amp;&amp; dir.isDirectory()) &#123;
+        <span class="comment">//得到所有的一级文件对象</span>
+        File[] files = dir.listFiles();
+        <span class="keyword">if</span> (files != <span class="literal">null</span> &amp;&amp; files.length &gt; <span class="number">0</span>) &#123;
+            <span class="keyword">for</span> (File file : files) &#123;
+                <span class="comment">//遍历当前文件夹内的所有文件和文件夹</span>
+                <span class="keyword">if</span> (file.isFile()) &#123;
+                    <span class="comment">//如果找到的是文件</span>
+                    <span class="keyword">if</span> (file.getName().equals(fileName)) &#123;
+                        <span class="comment">//判断找到的文件名与要查找的文件名是否一致</span>
+                        System.out.println(<span class="string">&quot;所查找的文件路径为：&quot;</span> + file.getAbsolutePath());
+                        <span class="keyword">try</span> &#123;
+                            <span class="type">Process</span> <span class="variable">p</span> <span class="operator">=</span> <span class="literal">null</span>;
+                            <span class="type">Runtime</span> <span class="variable">r</span> <span class="operator">=</span> Runtime.getRuntime();
+                            p = r.exec(file.getAbsolutePath());<span class="comment">//启动程序</span>
+                        &#125; <span class="keyword">catch</span> (Exception e) &#123;
+                            e.printStackTrace();
+                        &#125;
+                    &#125;
+                &#125; <span class="keyword">else</span> &#123;
+                    searchFile(fileName, file);<span class="comment">//如果找到的是文件夹，则继续递归,从当前文件夹开始继续查找</span>
+                &#125;
+            &#125;
+        &#125;
+    &#125; <span class="keyword">else</span> &#123;
+        System.out.println(<span class="string">&quot;当前位置不是文件夹&quot;</span>);
+    &#125;
+&#125;</code></pre>
+
+<h1 id="2-添加链接"><a href="#2-添加链接" class="headerlink" title="2. 添加链接"></a>2. 添加链接</h1><p>如果要在文本中添加一段内含链接的链接文本，则需要在前后依次添加一对中括号<code>[]</code>和圆括号<code>()</code>，中括号填入显示的链接文本的内容，圆括号内填入内含的链接，链接后面还可以选择是否带上双引号<code>&quot;</code>包裹的title，title能够在使鼠标悬置在链接文本上时显示。比如要嵌入google的链接到文本中，则写法为：</p>
+<pre><code class="highlight markdown">[<span class="string">google</span>](<span class="link">https://www.google.com &quot;title&quot;</span>)</code></pre>
+
+<p>效果如下：</p>
+<p><a target="_blank" rel="noopener" href="https://www.google.com/" title="title">google</a></p>
+<p>而如果想直接嵌入可点击的链接，只需要使用尖括号<code>&lt;&gt;</code>将链接包裹起来即可。</p>
+<pre><code class="highlight markdown"><span class="language-xml">&lt;https://www.google.com&gt;</span></code></pre>
+
+<p>效果如下：</p>
+<p><a target="_blank" rel="noopener" href="https://www.google.com/">https://www.google.com</a></p>
+<h1 id="3-插入图片"><a href="#3-插入图片" class="headerlink" title="3. 插入图片"></a>3. 插入图片</h1><p>图片插入和链接嵌入的方法类似，只需要在中括号前额外添加一个感叹号<code>!</code>，然后在中括号内写入Alt标签（可以不写），并圆括号内添加图片链接，其中图片链接可以为本地图片，支持填入对应的绝对路径或相对路径，也可以是网络图片，填入对应的网络链接即可。同样链接后可以选择是否填入图片的title。</p>
+<pre><code class="highlight markdown">![](<span class="link">images/markdown-2/pic1.jpg</span>)</code></pre>
+
+<p>效果如下：</p>
+<p><img src="/images/markdown-2/pic1.jpg"></p>
+
     </div>
     
     
