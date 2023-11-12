@@ -1,189 +1,297 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Markdown的常用语法 I | PoKi&#39;s Blog</title>
-    <meta name="author" content="PoKi" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <link rel="icon" href="/images/avatar.jpg" />
-    <link rel="preconnect" href="https://cdn.staticfile.org" />
-<script src="https://cdn.staticfile.org/vue/3.3.7/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.2/css/all.min.css" />
-<link rel="preconnect" href="https://fonts.loli.net" />
-<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
-<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
-<script> const mixins = {}; </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="PoKi">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://zzpoki.github.io/2023/11/10/markdown-1/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="markdown是一种轻量级的标记语言，它可以基于纯文本的形式来对文档进行编辑和修改。这里展示一些markdown的常用语法，方便个人在hexo博客下撰写自己的文章。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown的常用语法 I">
+<meta property="og:url" content="https://zzpoki.github.io/2023/11/10/markdown-1/">
+<meta property="og:site_name" content="PoKi&#39;s Blog">
+<meta property="og:description" content="markdown是一种轻量级的标记语言，它可以基于纯文本的形式来对文档进行编辑和修改。这里展示一些markdown的常用语法，方便个人在hexo博客下撰写自己的文章。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-10T09:50:01.000Z">
+<meta property="article:modified_time" content="2023-11-12T09:08:24.058Z">
+<meta property="article:author" content="PoKi">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Markdown的常用语法 I -
+        
+        PoKi&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
 
 
-<script src="https://cdn.staticfile.org/highlight.js/11.9.0/highlight.min.js"></script>
-<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.staticfile.org/highlight.js/11.9.0/styles/purebasic.min.css"
-/>
-<script src="/js/lib/highlight.js"></script>
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
 
+    
 
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
 
-<script src="/js/lib/preview.js"></script>
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
 
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
 
+    <!--- Font Part-->
+    
+    
+    
+    
 
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    window.config = {"hostname":"zzpoki.github.io","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":false},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":false,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Theme Redefine","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.5.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
 
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
 
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
 
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
 
-
-
-<link rel="stylesheet" href="/css/main.css" />
+    
+    
+    
+    
 <meta name="generator" content="Hexo 7.0.0"></head>
+
+
 <body>
-    <div id="layout">
-        <transition name="fade">
-            <div id="loading" v-show="loading">
-                <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <img src="/images/loading.gif" />
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="swup-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                PoKi&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
                 </div>
             </div>
-        </transition>
-        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <nav id="desktop-menu">
-        <a class="title" href="/">
-            <span>POKI&#39;S BLOG</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-        <a href="/images">
-            <i class="fa-solid fa-image fa-fw"></i>
-            <span>&ensp;Pictures</span>
-        </a>
-        
-    </nav>
-    <nav id="mobile-menu">
-        <div class="title" @click="showMenuItems = !showMenuItems">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;POKI&#39;S BLOG</span>
         </div>
-        <transition name="slide">
-            <div class="items" v-show="showMenuItems">
-                
-                <a href="/">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-house fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                    </div>
-                </a>
-                
-                <a href="/about">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
-                    </div>
-                </a>
-                
-                <a href="/archives">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-box-archive fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                    </div>
-                </a>
-                
-                <a href="/images">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-image fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Pictures</div>
-                    </div>
-                </a>
-                
-            </div>
-        </transition>
-    </nav>
-</div>
-<transition name="fade">
-    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
-</transition>
+    </div>
 
-        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
-    <div>
-        <h1>Markdown的常用语法 I</h1>
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer w-full absolute top-0 left-0 bg-background-color">
+        <ul class="drawer-navbar-list flex flex-col justify-start items-center">
+            
+                
+                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
     </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/11/10
-        </span>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            
+                <h1 class="article-title-regular">Markdown的常用语法 I</h1>
+            
+            </div>
+            
+                    
         
         
-    </div>
+            <div class="article-header flex flex-row gap-2 items-center">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/redefine-avatar.svg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">PoKi</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-11-10 17:50:01</span>
+        <span class="mobile">2023-11-10 17:50:01</span>
+        <span class="hover-info">Created</span>
+    </span>
     
-    <div class="content" v-pre>
-        <p>markdown是一种轻量级的标记语言，它可以基于纯文本的形式来对文档进行编辑和修改。这里展示一些markdown的常用语法，方便个人在hexo博客下撰写自己的文章。</p>
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-11-12 17:08:24</span>
+            <span class="mobile">2023-11-12 17:08:24</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body">
+            <p>markdown是一种轻量级的标记语言，它可以基于纯文本的形式来对文档进行编辑和修改。这里展示一些markdown的常用语法，方便个人在hexo博客下撰写自己的文章。</p>
 <span id="more"></span>
 
 <h1 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h1><p>如果要在文章中创建标题，应该在标题文字前面添加上对应标题级别的井号<code>#</code>，井号数量从一个到六个分别对应一级到六级标题。比如要创建一个二级标题和四级标题，则对应的markdown写法为：</p>
-<pre><code class="highlight markdown"><span class="section">## 二级标题</span>
-<span class="section">#### 四级标题</span></code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br></pre></td></tr></table></figure></div>
 
 <p>呈现出来的效果即为：</p>
 <h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><p>另外，markdown还支持使用<code>-</code>和<code>=</code>号来进行标题标识。通过在目标文本下添加任意数量的<code>-</code>或<code>=</code>号，便能够分别标识出对应文本的二级或一级标题。写法举例：</p>
-<pre><code class="highlight markdown"><span class="section">一级标题</span>
-<span class="section">====</span>
-<span class="section">二级标题</span>
-<span class="section">---</span></code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">一级标题</span></span><br><span class="line"><span class="section">====</span></span><br><span class="line"><span class="section">二级标题</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure></div>
 
 <p>呈现出来的效果即为：</p>
 <h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2><h1 id="2-段落和换行"><a href="#2-段落和换行" class="headerlink" title="2. 段落和换行"></a>2. 段落和换行</h1><p>要创建新的段落，可以选择在段落之间空一行或多行来进行换行，当然也可以通过在前一行的末尾添加两个或多个空格，然后回车来实现换行。</p>
-<pre><code class="highlight markdown">第一段
-
-第二段</code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第一段</span><br><span class="line"></span><br><span class="line">第二段</span><br></pre></td></tr></table></figure></div>
 
 <h1 id="3-粗体和斜体"><a href="#3-粗体和斜体" class="headerlink" title="3. 粗体和斜体"></a>3. 粗体和斜体</h1><h2 id="3-1-粗体"><a href="#3-1-粗体" class="headerlink" title="3.1 粗体"></a>3.1 粗体</h2><p>如果要对文本中的重点词进行加粗，需要在加粗文本前后各添加<strong>两个</strong>星号<code>**</code>或下划线<code>_</code>，但下划线在加粗相连单词或短语的中间部分时并不兼容，所以在文本加粗上应该尽量使用星号<code>*</code>进行加粗。</p>
-<pre><code class="highlight markdown">这是一段<span class="strong">**粗体文本**</span>。</code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一段<span class="strong">**粗体文本**</span>。</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
 <p>这是一段<strong>粗体文本</strong>。</p>
 <h2 id="3-2-斜体"><a href="#3-2-斜体" class="headerlink" title="3.2 斜体"></a>3.2 斜体</h2><p>如果要让某段文本斜体化，和加粗文本类似，需要在斜体文本前后各添加<strong>一个</strong>星号<code>*</code>或下划线<code>_</code>，同样考虑到兼容性的问题，在文本斜体化时还是尽量使用星号<code>*</code>来实现。</p>
-<pre><code class="highlight markdown">He is a <span class="emphasis">*gentleman*</span>.</code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">He is a <span class="emphasis">*gentleman*</span>.</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
 <p>He is a <em>gentleman</em>.</p>
 <p>另外，如果要使目标文本同时被加粗和斜体化，则需要在文本前后各添加<strong>三个</strong>星号<code>***</code>。</p>
-<pre><code class="highlight markdown">这是一个<span class="strong">**<span class="emphasis">*重点词*</span>**</span>。</code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个<span class="strong">**<span class="emphasis">*重点词*</span>**</span>。</span><br></pre></td></tr></table></figure></div>
 <p>效果如下：</p>
 <p>这是一个<em><strong>重点词</strong></em>。</p>
 <h1 id="4-创建引用"><a href="#4-创建引用" class="headerlink" title="4. 创建引用"></a>4. 创建引用</h1><p>要想创建引用，只需要添加一个<code>&gt;</code>号在被引用文本前。同样被引用文本间在换行时仍然遵循隔行或空格换行的规则。</p>
-<pre><code class="highlight markdown"><span class="quote">&gt; 这是一段被引用文本</span>
-<span class="quote">&gt;</span>
-<span class="quote">&gt; 这是另一段被引用文本</span></code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 这是一段被引用文本</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; 这是另一段被引用文本</span></span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
 <blockquote>
@@ -191,9 +299,7 @@
 <p>这是另一段被引用文本</p>
 </blockquote>
 <p>另外文本也可以被多层嵌套引用，只需要在被嵌套引用的文本前多添加一个<code>&gt;</code>即可。</p>
-<pre><code class="highlight markdown"><span class="quote">&gt; 这是主要引用内容</span>
-<span class="quote">&gt;</span>
-<span class="quote">&gt;&gt; 这是附带引用内容</span></code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 这是主要引用内容</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt;&gt; 这是附带引用内容</span></span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
 <blockquote>
@@ -204,10 +310,7 @@
 </blockquote>
 <h1 id="5-列表"><a href="#5-列表" class="headerlink" title="5. 列表"></a>5. 列表</h1><h2 id="5-1-有序列表"><a href="#5-1-有序列表" class="headerlink" title="5.1 有序列表"></a>5.1 有序列表</h2><p>想要创建有序列表，需要在每个列表项前添加一个数字加一个英文句点<code>.</code>，并以数字1作为列表的起始。</p>
 <p>虽然说markdown在语法上允许以1为起始点后的列表项数可以取任意数，但这里建议编写有序列表时还是尽量让列表数按顺序排列，与呈现效果一致。</p>
-<pre><code class="highlight markdown"><span class="bullet">1.</span> 第一点
-<span class="bullet">2.</span> 第二点
-<span class="bullet">3.</span> 第三点
-<span class="bullet">4.</span> 第四点</code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一点</span><br><span class="line"><span class="bullet">2.</span> 第二点</span><br><span class="line"><span class="bullet">3.</span> 第三点</span><br><span class="line"><span class="bullet">4.</span> 第四点</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
 <ol>
@@ -217,11 +320,7 @@
 <li>第四点</li>
 </ol>
 <h2 id="5-2-无序列表"><a href="#5-2-无序列表" class="headerlink" title="5.2 无序列表"></a>5.2 无序列表</h2><p>如果要创建无序列表，需要在每个列表项前添加一个加号<code>+</code>、减号<code>-</code>或者星号<code>*</code>。同时利用缩进可以实现无序列表的嵌套。</p>
-<pre><code class="highlight markdown"><span class="bullet">-</span> 文章背景
-<span class="bullet">-</span> 文章开头
-<span class="bullet">-</span> 文章正文
-<span class="bullet">-</span> 文章总结
-<span class="bullet">    -</span> 拓展内容</code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> 文章背景</span><br><span class="line"><span class="bullet">-</span> 文章开头</span><br><span class="line"><span class="bullet">-</span> 文章正文</span><br><span class="line"><span class="bullet">-</span> 文章总结</span><br><span class="line"><span class="bullet">    -</span> 拓展内容</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
 <ul>
@@ -236,50 +335,332 @@
 <hr>
 <p>下一篇文章：<a href="/2023/11/11/markdown-2">Markdown的常用语法 II</a></p>
 
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> Markdown的常用语法 I</li>
+        <li><strong>Author:</strong> PoKi</li>
+        <li><strong>Created at
+                :</strong> 2023-11-10 17:50:01</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2023-11-12 17:08:24
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://redefine.ohevan.com/2023/11/10/markdown-1/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+            This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
+            
+
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2023/11/11/markdown-2/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Markdown的常用语法 II</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                        rel="next"
+                        href="/2023/11/06/Hello-Hexo/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Hello Hexo</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
     </div>
+
     
-    
-    
-    
-    
-    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">Markdown的常用语法 I</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%A0%87%E9%A2%98"><span class="nav-text">1. 标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-text">二级标题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98-1"><span class="nav-text">二级标题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%AE%B5%E8%90%BD%E5%92%8C%E6%8D%A2%E8%A1%8C"><span class="nav-text">2. 段落和换行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%B2%97%E4%BD%93%E5%92%8C%E6%96%9C%E4%BD%93"><span class="nav-text">3. 粗体和斜体</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E7%B2%97%E4%BD%93"><span class="nav-text">3.1 粗体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E6%96%9C%E4%BD%93"><span class="nav-text">3.2 斜体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%88%9B%E5%BB%BA%E5%BC%95%E7%94%A8"><span class="nav-text">4. 创建引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%88%97%E8%A1%A8"><span class="nav-text">5. 列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-text">5.1 有序列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-text">5.2 无序列表</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
     
 </div>
 
-            <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2022 - 2023 PoKi&#39;s Blog
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;PoKi
-        </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
-        </div>
-        
-    </div>
-</footer>
 
-        </div>
-        
-        <transition name="fade">
-            <div id="preview" ref="preview" v-show="previewShow">
-                <img id="preview-content" ref="previewContent" />
+
+                
+
             </div>
-        </transition>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
         
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">PoKi</a>
+        </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.5.0</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
     </div>
-    <script src="/js/main.js"></script>
-    
-    
-
-
-
 
     
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="fa-regular fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/libs/anime.min.js"></script>
+
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
 </body>
 </html>

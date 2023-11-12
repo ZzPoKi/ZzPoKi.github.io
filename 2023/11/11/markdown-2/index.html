@@ -1,225 +1,327 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Markdown的常用语法 II | PoKi&#39;s Blog</title>
-    <meta name="author" content="PoKi" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <link rel="icon" href="/images/avatar.jpg" />
-    <link rel="preconnect" href="https://cdn.staticfile.org" />
-<script src="https://cdn.staticfile.org/vue/3.3.7/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.2/css/all.min.css" />
-<link rel="preconnect" href="https://fonts.loli.net" />
-<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
-<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
-<script> const mixins = {}; </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="PoKi">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://zzpoki.github.io/2023/11/11/markdown-2/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="上一篇文章：Markdown的常用语法 I">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown的常用语法 II">
+<meta property="og:url" content="https://zzpoki.github.io/2023/11/11/markdown-2/">
+<meta property="og:site_name" content="PoKi&#39;s Blog">
+<meta property="og:description" content="上一篇文章：Markdown的常用语法 I">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://zzpoki.github.io/images/markdown-2/pic1.jpg">
+<meta property="og:image" content="https://zzpoki.github.io/images/markdown-2/pic2.jpg">
+<meta property="og:image" content="https://zzpoki.github.io/images/markdown-2/pic3.jpg">
+<meta property="article:published_time" content="2023-11-11T15:40:19.000Z">
+<meta property="article:modified_time" content="2023-11-12T13:20:18.023Z">
+<meta property="article:author" content="PoKi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zzpoki.github.io/images/markdown-2/pic1.jpg">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Markdown的常用语法 II -
+        
+        PoKi&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
 
 
-<script src="https://cdn.staticfile.org/highlight.js/11.9.0/highlight.min.js"></script>
-<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.staticfile.org/highlight.js/11.9.0/styles/purebasic.min.css"
-/>
-<script src="/js/lib/highlight.js"></script>
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
 
+    
 
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
 
-<script src="/js/lib/preview.js"></script>
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
 
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
 
+    <!--- Font Part-->
+    
+    
+    
+    
 
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    window.config = {"hostname":"zzpoki.github.io","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":false},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":false,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Theme Redefine","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.5.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
 
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
 
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
 
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
 
-
-
-<link rel="stylesheet" href="/css/main.css" />
+    
+    
+    
+    
 <meta name="generator" content="Hexo 7.0.0"></head>
+
+
 <body>
-    <div id="layout">
-        <transition name="fade">
-            <div id="loading" v-show="loading">
-                <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <img src="/images/loading.gif" />
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="swup-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                PoKi&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
                 </div>
             </div>
-        </transition>
-        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <nav id="desktop-menu">
-        <a class="title" href="/">
-            <span>POKI&#39;S BLOG</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-        <a href="/images">
-            <i class="fa-solid fa-image fa-fw"></i>
-            <span>&ensp;Pictures</span>
-        </a>
-        
-    </nav>
-    <nav id="mobile-menu">
-        <div class="title" @click="showMenuItems = !showMenuItems">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;POKI&#39;S BLOG</span>
         </div>
-        <transition name="slide">
-            <div class="items" v-show="showMenuItems">
-                
-                <a href="/">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-house fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                    </div>
-                </a>
-                
-                <a href="/about">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
-                    </div>
-                </a>
-                
-                <a href="/archives">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-box-archive fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                    </div>
-                </a>
-                
-                <a href="/images">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-image fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Pictures</div>
-                    </div>
-                </a>
-                
-            </div>
-        </transition>
-    </nav>
-</div>
-<transition name="fade">
-    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
-</transition>
+    </div>
 
-        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
-    <div>
-        <h1>Markdown的常用语法 II</h1>
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer w-full absolute top-0 left-0 bg-background-color">
+        <ul class="drawer-navbar-list flex flex-col justify-start items-center">
+            
+                
+                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
     </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/11/11
-        </span>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            
+                <h1 class="article-title-regular">Markdown的常用语法 II</h1>
+            
+            </div>
+            
+                    
         
         
-    </div>
+            <div class="article-header flex flex-row gap-2 items-center">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/redefine-avatar.svg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">PoKi</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-11-11 23:40:19</span>
+        <span class="mobile">2023-11-11 23:40:19</span>
+        <span class="hover-info">Created</span>
+    </span>
     
-    <div class="content" v-pre>
-        <p>上一篇文章：<a href="/2023/11/10/markdown-1">Markdown的常用语法 I</a></p>
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-11-12 21:20:18</span>
+            <span class="mobile">2023-11-12 21:20:18</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body">
+            <p>上一篇文章：<a href="/2023/11/10/markdown-1">Markdown的常用语法 I</a></p>
 <span id="more"></span>
 
 <h1 id="1-代码表示"><a href="#1-代码表示" class="headerlink" title="1. 代码表示"></a>1. 代码表示</h1><p>要想把文本中的某个部分以代码的形式表示出来，需要在文本的前后添加各一个反引号<code>`</code>使其被包裹起来。当部分其中本身含有反引号时，则需要前后各添加两个反引号来进行包裹。</p>
-<pre><code class="highlight markdown"><span class="code">`markdown`</span>是一种轻量级的标记语言</code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">`markdown`</span>是一种轻量级的标记语言</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
 <p><code>markdown</code>是一种轻量级的标记语言</p>
 <p>而想要把代码块给整段以代码形式表现出来，可以采用围栏式代码块的方式来实现。将需要被代码表示的代码块的前后分别用三个反引号<code>```</code>将代码块给包裹起来，可以在代码块前的反引号后通过指定代码的语言类型来实现代码的语法高亮。</p>
 <p>比如：</p>
-<pre><code class="highlight java"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">searchFile</span><span class="params">(String fileName, File dir)</span> &#123;
-    <span class="keyword">if</span> (dir != <span class="literal">null</span> &amp;&amp; dir.isDirectory()) &#123;
-        <span class="comment">//得到所有的一级文件对象</span>
-        File[] files = dir.listFiles();
-        <span class="keyword">if</span> (files != <span class="literal">null</span> &amp;&amp; files.length &gt; <span class="number">0</span>) &#123;
-            <span class="keyword">for</span> (File file : files) &#123;
-                <span class="comment">//遍历当前文件夹内的所有文件和文件夹</span>
-                <span class="keyword">if</span> (file.isFile()) &#123;
-                    <span class="comment">//如果找到的是文件</span>
-                    <span class="keyword">if</span> (file.getName().equals(fileName)) &#123;
-                        <span class="comment">//判断找到的文件名与要查找的文件名是否一致</span>
-                        System.out.println(<span class="string">&quot;所查找的文件路径为：&quot;</span> + file.getAbsolutePath());
-                        <span class="keyword">try</span> &#123;
-                            <span class="type">Process</span> <span class="variable">p</span> <span class="operator">=</span> <span class="literal">null</span>;
-                            <span class="type">Runtime</span> <span class="variable">r</span> <span class="operator">=</span> Runtime.getRuntime();
-                            p = r.exec(file.getAbsolutePath());<span class="comment">//启动程序</span>
-                        &#125; <span class="keyword">catch</span> (Exception e) &#123;
-                            e.printStackTrace();
-                        &#125;
-                    &#125;
-                &#125; <span class="keyword">else</span> &#123;
-                    searchFile(fileName, file);<span class="comment">//如果找到的是文件夹，则继续递归,从当前文件夹开始继续查找</span>
-                &#125;
-            &#125;
-        &#125;
-    &#125; <span class="keyword">else</span> &#123;
-        System.out.println(<span class="string">&quot;当前位置不是文件夹&quot;</span>);
-    &#125;
-&#125;</code></pre>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">searchFile</span><span class="params">(String fileName, File dir)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (dir != <span class="literal">null</span> &amp;&amp; dir.isDirectory()) &#123;</span><br><span class="line">        <span class="comment">//得到所有的一级文件对象</span></span><br><span class="line">        File[] files = dir.listFiles();</span><br><span class="line">        <span class="keyword">if</span> (files != <span class="literal">null</span> &amp;&amp; files.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (File file : files) &#123;</span><br><span class="line">                <span class="comment">//遍历当前文件夹内的所有文件和文件夹</span></span><br><span class="line">                <span class="keyword">if</span> (file.isFile()) &#123;</span><br><span class="line">                    <span class="comment">//如果找到的是文件</span></span><br><span class="line">                    <span class="keyword">if</span> (file.getName().equals(fileName)) &#123;</span><br><span class="line">                        <span class="comment">//判断找到的文件名与要查找的文件名是否一致</span></span><br><span class="line">                        System.out.println(<span class="string">&quot;所查找的文件路径为：&quot;</span> + file.getAbsolutePath());</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            <span class="type">Process</span> <span class="variable">p</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">                            <span class="type">Runtime</span> <span class="variable">r</span> <span class="operator">=</span> Runtime.getRuntime();</span><br><span class="line">                            p = r.exec(file.getAbsolutePath());<span class="comment">//启动程序</span></span><br><span class="line">                        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                            e.printStackTrace();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    searchFile(fileName, file);<span class="comment">//如果找到的是文件夹，则继续递归,从当前文件夹开始继续查找</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;当前位置不是文件夹&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 <h1 id="2-添加链接"><a href="#2-添加链接" class="headerlink" title="2. 添加链接"></a>2. 添加链接</h1><p>如果要在文本中添加一段内含链接的链接文本，则需要在前后依次添加一对中括号<code>[]</code>和圆括号<code>()</code>，中括号填入显示的链接文本的内容，圆括号内填入内含的链接，链接后面还可以选择是否带上双引号<code>&quot;</code>包裹的title，title能够在使鼠标悬置在链接文本上时显示。比如要嵌入google的链接到文本中，则写法为：</p>
-<pre><code class="highlight markdown">[<span class="string">google</span>](<span class="link">https://www.google.com &quot;title&quot;</span>)</code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">google</span>](<span class="link">https://www.google.com &quot;title&quot;</span>)</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
-<p><a target="_blank" rel="noopener" href="https://www.google.com/" title="title">google</a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.google.com/"  title="title">google <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p>而如果想直接嵌入可点击的链接，只需要使用尖括号<code>&lt;&gt;</code>将链接包裹起来即可。</p>
-<pre><code class="highlight markdown"><span class="language-xml">&lt;https://www.google.com&gt;</span></code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml">&lt;https://www.google.com&gt;</span></span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
-<p><a target="_blank" rel="noopener" href="https://www.google.com/">https://www.google.com</a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.google.com/" >https://www.google.com <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <h1 id="3-插入图片"><a href="#3-插入图片" class="headerlink" title="3. 插入图片"></a>3. 插入图片</h1><p>图片插入和链接嵌入的方法类似，只需要在中括号前额外添加一个感叹号<code>!</code>，然后在中括号内写入Alt标签（可以不写），并圆括号内添加图片链接，其中图片链接可以为本地图片，支持填入对应的绝对路径或相对路径，也可以是网络图片，填入对应的网络链接即可。同样链接后可以选择是否填入图片的title。</p>
-<pre><code class="highlight markdown">![](<span class="link">images/markdown-2/pic1.jpg</span>)</code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](<span class="link">images/markdown-2/pic1.jpg</span>)</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
-<p><img src="/images/markdown-2/pic1.jpg"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/markdown-2/pic1.jpg"
+                     
+                ></p>
 <p>而如果要让图片并排显示，则对应的markdown写法为：</p>
-<pre><code class="highlight markdown">![](<span class="link">images/markdown-2/pic2.jpg</span>) | ![](<span class="link">images/markdown-2/pic3.jpg</span>)
----|---</code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![](<span class="link">images/markdown-2/pic2.jpg</span>) | ![](<span class="link">images/markdown-2/pic3.jpg</span>)</span><br><span class="line">---|---</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
 <table>
 <thead>
 <tr>
-<th><img src="/images/markdown-2/pic2.jpg"></th>
-<th><img src="/images/markdown-2/pic3.jpg"></th>
+<th><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/markdown-2/pic2.jpg"
+                     
+                ></th>
+<th><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/markdown-2/pic3.jpg"
+                     
+                ></th>
 </tr>
 </thead>
 </table>
 <h1 id="4-表格语法"><a href="#4-表格语法" class="headerlink" title="4. 表格语法"></a>4. 表格语法</h1><p>要在文章中添加表格，应该使用三个或以上连字符（减号）<code>-</code>作为每列标题的底，并以分隔符<code>|</code>来分隔每列，在编写时单元格不需要完全一致对齐。写法举例：</p>
-<pre><code class="highlight markdown">| 姓名 | 年龄  | 性别 | 
-| --- |-----|-----|
-| A  | 20  | M   |
-| B  |  19  |  F  |
-|  C |  22 |  F  |</code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 姓名 | 年龄  | 性别 | </span><br><span class="line">| --- |-----|-----|</span><br><span class="line">| A  | 20  | M   |</span><br><span class="line">| B  |  19  |  F  |</span><br><span class="line">|  C |  22 |  F  |</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
 <table>
@@ -250,60 +352,326 @@
 <h1 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h1><p>如果要使文章缩略展示，需要在被缩略的文本前添加上<code>&lt;!--more--&gt;</code>，这样只有在点开全文内容时被缩略文本才会显示出来。</p>
 <p>对于一些被用在markdown语法上的符号，如果要把这些符号本身给显示出来，需要在符号前添加上反斜杠<code>\</code>。</p>
 <p>而要想在文本中添加删除线，则要在目标文本前后各添加两个波浪号<code>~~</code>。</p>
-<pre><code class="highlight markdown">这是一个~~错误信息~~</code></pre>
+<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个~~错误信息~~</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
 <p>这是一个<del>错误信息</del></p>
-<p>此外，markdown完全支持HTML和CSS格式编写，其在插入图片、嵌入链接、调整字体颜色等方面都能够和markdown进行配合使用。比如：</p>
-<pre><code class="highlight html"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;red&quot;</span>&gt;</span>这是一段红色文本<span class="tag">&lt;/<span class="name">font</span>&gt;</span></code></pre>
-
-<p>效果如下：</p>
+<p>此外，markdown完全支持HTML和CSS格式编写，其在插入图片、嵌入链接、调整字体颜色等方面都能够和markdown进行配合使用。比如直接添加：</p>
+<p><code>&lt;font color=&quot;red&quot;&gt;这是一段红色文本&lt;/font&gt;</code></p>
+<p>效果即为：</p>
 <p><font color="red">这是一段红色文本</font></p>
 
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> Markdown的常用语法 II</li>
+        <li><strong>Author:</strong> PoKi</li>
+        <li><strong>Created at
+                :</strong> 2023-11-11 23:40:19</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2023-11-12 21:20:18
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://redefine.ohevan.com/2023/11/11/markdown-2/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+            This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
+            
+
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                        rel="next"
+                        href="/2023/11/10/markdown-1/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Markdown的常用语法 I</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
     </div>
+
     
-    
-    
-    
-    
-    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">Markdown的常用语法 II</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BB%A3%E7%A0%81%E8%A1%A8%E7%A4%BA"><span class="nav-text">1. 代码表示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%B7%BB%E5%8A%A0%E9%93%BE%E6%8E%A5"><span class="nav-text">2. 添加链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="nav-text">3. 插入图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E8%A1%A8%E6%A0%BC%E8%AF%AD%E6%B3%95"><span class="nav-text">4. 表格语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%85%B6%E4%BB%96"><span class="nav-text">5. 其他</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
     
 </div>
 
-            <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2022 - 2023 PoKi&#39;s Blog
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;PoKi
-        </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
-        </div>
-        
-    </div>
-</footer>
 
-        </div>
-        
-        <transition name="fade">
-            <div id="preview" ref="preview" v-show="previewShow">
-                <img id="preview-content" ref="previewContent" />
+
+                
+
             </div>
-        </transition>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
         
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">PoKi</a>
+        </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.5.0</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
     </div>
-    <script src="/js/main.js"></script>
-    
-    
-
-
-
 
     
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="fa-regular fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/libs/anime.min.js"></script>
+
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
 </body>
 </html>
