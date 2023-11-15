@@ -9731,3 +9731,8 @@ div.tabs .tab-content .tab-pane .note:last-child {
   white-space: nowrap;
   width: 100%;
 }
+@media (max-width: 640px) {
+  body {
+    background: url("/images/markdown-2/pic1.jpg");
+  }
+}
