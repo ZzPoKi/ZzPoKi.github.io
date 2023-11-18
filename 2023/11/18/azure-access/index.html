@@ -19,18 +19,29 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://zzpoki.github.io/archives/2023/"/>
+    <link rel="canonical" href="https://zzpoki.github.io/2023/11/18/azure-access/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="website">
-<meta property="og:title" content="PoKi&#39;s Blog">
-<meta property="og:url" content="https://zzpoki.github.io/archives/2023/">
+        <meta name="description" content="对于刚创建的Azure VM（VPS）来说，由于Azure防火墙的存在，默认情况下只有少数几个端口（如SSH服务的22端口）可供外部访问使用。而要想将更多的端口开放出来，则需要额外添加入站的端口规则。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="令Azure VPS的公共ip开放外部访问">
+<meta property="og:url" content="https://zzpoki.github.io/2023/11/18/azure-access/">
 <meta property="og:site_name" content="PoKi&#39;s Blog">
+<meta property="og:description" content="对于刚创建的Azure VM（VPS）来说，由于Azure防火墙的存在，默认情况下只有少数几个端口（如SSH服务的22端口）可供外部访问使用。而要想将更多的端口开放出来，则需要额外添加入站的端口规则。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://zzpoki.github.io/images/azure-access/denyall.png">
+<meta property="og:image" content="https://zzpoki.github.io/images/azure-access/deny.png">
+<meta property="og:image" content="https://zzpoki.github.io/images/azure-access/allow.png">
+<meta property="og:image" content="https://zzpoki.github.io/images/azure-access/ping.png">
+<meta property="article:published_time" content="2023-11-18T10:33:39.000Z">
+<meta property="article:modified_time" content="2023-11-18T15:18:11.852Z">
 <meta property="article:author" content="PoKi">
+<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="VPS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zzpoki.github.io/images/azure-access/denyall.png">
     
     
     <!--- Icon Part-->
@@ -42,7 +53,7 @@
     
     <title>
         
-            Archive: 2023 -
+            令Azure VPS的公共ip开放外部访问 -
         
         PoKi&#39;s Blog
     </title>
@@ -143,7 +154,7 @@
                         
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active" 
+                                <a class="" 
                                     href="/archives"  >
                                     
                                         
@@ -212,7 +223,7 @@
             
                 
                     <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
-                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group active" 
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
                         href="/archives"  >
                              
                                 
@@ -258,74 +269,177 @@
             <div class="main-content">
 
                 
-                    <div class="archive-container ">
-    
+                    <div class="post-page-container">
+    <div class="article-content-container">
 
-<div class="archive-list-container">
-    
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2023</span>
-                <span class="archive-year-post-count">[5]</span>
+        <div class="article-title">
+            
+                <h1 class="article-title-regular">令Azure VPS的公共ip开放外部访问</h1>
+            
             </div>
-            <ul class="article-list">
-              
-                
+            
                     
-                    <li class="article-item" date-is='11-18'>
+        
+        
+            <div class="article-header flex flex-row gap-2 items-center">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/redefine-avatar.svg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">PoKi</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-11-18 18:33:39</span>
+        <span class="mobile">2023-11-18 18:33:39</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-11-18 23:18:11</span>
+            <span class="mobile">2023-11-18 23:18:11</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
                 
+                    <li>
+                        <a href="/tags/Azure/">Azure</a>&nbsp;
+                    </li>
                 
-                    <a href="/2023/11/18/azure-access/">
-                        <span class="article-title">令Azure VPS的公共ip开放外部访问</span>
-                    </a>
+                    <li>
+                        | <a href="/tags/VPS/">VPS</a>&nbsp;
+                    </li>
                 
-              
-                
-                    
-                    <li class="article-item" date-is='11-11'>
-                
-                
-                    <a href="/2023/11/11/markdown-2/">
-                        <span class="article-title">Markdown的常用语法 II</span>
-                    </a>
-                
-              
-                
-                    
-                    <li class="article-item" date-is='11-10'>
-                
-                
-                    <a href="/2023/11/10/markdown-1/">
-                        <span class="article-title">Markdown的常用语法 I</span>
-                    </a>
-                
-              
-                
-                    
-                    <li class="article-item" date-is='11-06'>
-                
-                
-                    <a href="/2023/11/06/Hello-Hexo/">
-                        <span class="article-title">Hello Hexo</span>
-                    </a>
-                
-              
-                
-                    
-                    <li class="article-item" date-is='11-05'>
-                
-                
-                    <a href="/2023/11/05/hello-world/">
-                        <span class="article-title">Hello World</span>
-                    </a>
-                
-              
             </ul>
-        </section>
+        </span>
+    
+
+    
+    
+    
     
 </div>
 
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body">
+            <p>对于刚创建的Azure VM（VPS）来说，由于Azure防火墙的存在，默认情况下只有少数几个端口（如SSH服务的22端口）可供外部访问使用。而要想将更多的端口开放出来，则需要额外添加入站的端口规则。</p>
+<span id="more"></span>
+
+<h1 id="1-Azure-VPS在默认情况下无法ping通的原因"><a href="#1-Azure-VPS在默认情况下无法ping通的原因" class="headerlink" title="1. Azure VPS在默认情况下无法ping通的原因"></a>1. Azure VPS在默认情况下无法ping通的原因</h1><p>通常来说，我们在对远程主机进行连通性测试时，都习惯使用ping命令，而最开始我将Azure VPS创建出来之后，首先就是遇到了Azure主机无法ping通的问题。经过了解才知道，Azure存在一道防火墙，使得ICMP协议下的数据包被阻拦，以下是官方文档的说明：</p>
+<blockquote>
+<p>在 Azure 中，ICMP 包无法通过防火墙和负载均衡器，所以不能直接使用 ping 来测试 Azure 中的虚拟机和服务的连通性（VPN 和 Express Route 通道中的流量不经过负载均衡器，所以只要链路上的防火墙允许 ICMP 包传递，ping 依然可用）。</p>
+</blockquote>
+<p>而ping实际上就是向目标主机发送一个ICMP Echo的请求数据包，然后等待目标主机返回响应数据包，重复多次来计算网络时延和丢包率的一个过程。显然由于Azure防火墙的存在，ping命令下的ICMP请求数据包被防火墙拒绝，也就解释了默认状态下为什么对Azure主机ping只会返回请求超时的原因。</p>
+<h1 id="2-自定义入站端口规则"><a href="#2-自定义入站端口规则" class="headerlink" title="2. 自定义入站端口规则"></a>2. 自定义入站端口规则</h1><p>知道Azure防护墙对外部访问的限制后，我们需要做的就是去修改其网络安全组规则。首先打开Azure VM的控制台，进入到主机资源组中的NSG配置，可以看到最后有一条”DenyAllInBound“的默认规则，它将所有的外部访问都给拒绝了，而我们需要对入站端口规则进行添加设置，把端口从防火墙中开放出来。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/azure-access/denyall.png"
+                     
+                ></p>
+<h2 id="2-1-设定拒绝外网访问的特定端口"><a href="#2-1-设定拒绝外网访问的特定端口" class="headerlink" title="2.1 设定拒绝外网访问的特定端口"></a>2.1 设定拒绝外网访问的特定端口</h2><p>在入站安全规则的设置界面中点击添加，源保持默认设定”Any“，源端口范围保持默认设定”*“即任意端口，修改目标为”Service Tag“，将目标服务标记为”Internet“，这表示限定与互联网之间的通信规则。然后修改目标端口范围，这里可以以逗号分隔的形式来定义多个目标端口，也可以设定范围。在操作上选择”拒绝“，规则名称自定，保存修改。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/azure-access/deny.png"
+                     
+                ></p>
+<p>通过上述规则自定义，可以使外网访问走不了这几个特定的端口，保证了一定的安全。</p>
+<h2 id="2-2-设定开放外部访问的端口"><a href="#2-2-设定开放外部访问的端口" class="headerlink" title="2.2 设定开放外部访问的端口"></a>2.2 设定开放外部访问的端口</h2><p>在下一优先级中，添加一条新的开放外部访问端口的规则。将源和目标均保持默认设定”Any“，将目标端口范围设定为”*“即任意范围，当然也可以自定义范围，操作上选择”允许“，规则名称自定，保存修改。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/azure-access/allow.png"
+                     
+                ></p>
+<p>这样就可以将其余端口开放出来，供外部访问使用。</p>
+<h1 id="3-重新进行ping测试"><a href="#3-重新进行ping测试" class="headerlink" title="3. 重新进行ping测试"></a>3. 重新进行ping测试</h1><p>最后在本地对Azure主机ip再次进行ping测试，可以看到成功连通。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/azure-access/ping.png"
+                     
+                ></p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Azure/">#Azure</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/VPS/">#VPS</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                        rel="next"
+                        href="/2023/11/11/markdown-2/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Markdown的常用语法 II</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">令Azure VPS的公共ip开放外部访问</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Azure-VPS%E5%9C%A8%E9%BB%98%E8%AE%A4%E6%83%85%E5%86%B5%E4%B8%8B%E6%97%A0%E6%B3%95ping%E9%80%9A%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-text">1. Azure VPS在默认情况下无法ping通的原因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%A5%E7%AB%99%E7%AB%AF%E5%8F%A3%E8%A7%84%E5%88%99"><span class="nav-text">2. 自定义入站端口规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E8%AE%BE%E5%AE%9A%E6%8B%92%E7%BB%9D%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE%E7%9A%84%E7%89%B9%E5%AE%9A%E7%AB%AF%E5%8F%A3"><span class="nav-text">2.1 设定拒绝外网访问的特定端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E8%AE%BE%E5%AE%9A%E5%BC%80%E6%94%BE%E5%A4%96%E9%83%A8%E8%AE%BF%E9%97%AE%E7%9A%84%E7%AB%AF%E5%8F%A3"><span class="nav-text">2.2 设定开放外部访问的端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E9%87%8D%E6%96%B0%E8%BF%9B%E8%A1%8Cping%E6%B5%8B%E8%AF%95"><span class="nav-text">3. 重新进行ping测试</span></a></li></ol>
+
+    </div>
 </div>
+        </div>
+    
+</div>
+
+
 
                 
 
@@ -362,6 +476,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-side-tools-container">
