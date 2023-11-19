@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello Hexo</title>
-    <url>/2023/11/06/Hello-Hexo/</url>
-    <content><![CDATA[<h6 id="hexo博客算是初步部署好了，以后就在这里写写东西吧🎉"><a href="#hexo博客算是初步部署好了，以后就在这里写写东西吧🎉" class="headerlink" title="hexo博客算是初步部署好了，以后就在这里写写东西吧🎉"></a>hexo博客算是初步部署好了，以后就在这里写写东西吧🎉</h6>]]></content>
-  </entry>
-  <entry>
     <title>令Azure VPS的公共ip开放外部访问</title>
     <url>/2023/11/18/azure-access/</url>
     <content><![CDATA[<p>对于刚创建的Azure VM（VPS）来说，由于Azure防火墙的存在，默认情况下只有少数几个端口（如SSH服务的22端口）可供外部访问使用。而要想将更多的端口开放出来，则需要额外添加入站的端口规则。</p>
@@ -16,14 +11,14 @@
 <p>在 Azure 中，ICMP 包无法通过防火墙和负载均衡器，所以不能直接使用 ping 来测试 Azure 中的虚拟机和服务的连通性（VPN 和 Express Route 通道中的流量不经过负载均衡器，所以只要链路上的防火墙允许 ICMP 包传递，ping 依然可用）。</p>
 </blockquote>
 <p>而ping实际上就是向目标主机发送一个ICMP Echo的请求数据包，然后等待目标主机返回响应数据包，重复多次来计算网络时延和丢包率的一个过程。显然由于Azure防火墙的存在，ping命令下的ICMP请求数据包被防火墙拒绝，也就解释了默认状态下为什么对Azure主机ping只会返回请求超时。</p>
-<h1 id="2-自定义入站端口规则"><a href="#2-自定义入站端口规则" class="headerlink" title="2. 自定义入站端口规则"></a>2. 自定义入站端口规则</h1><p>知道Azure防护墙对外部访问的限制后，我们需要做的就是去修改其网络安全组规则。首先打开Azure VM的控制台，进入到主机资源组中的NSG配置，可以看到最后有一条”DenyAllInBound“的默认规则，它将所有的外部访问都给拒绝了，而我们需要对入站端口规则进行添加设置，把端口从防火墙中开放出来。</p>
+<h1 id="2-自定义入站端口规则"><a href="#2-自定义入站端口规则" class="headerlink" title="2. 自定义入站端口规则"></a>2. 自定义入站端口规则</h1><p>知道Azure防护墙对外部访问的限制后，我们需要做的就是去修改其网络安全组规则。首先打开Azure VM的控制台，进入到主机资源组中的NSG配置，可以看到最后有一条”DenyAllInBound”的默认规则，它将所有的外部访问都给拒绝了，而我们需要对入站端口规则进行添加设置，把端口从防火墙中开放出来。</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/images/azure-access/denyall.png"
                      
                 ></p>
-<h2 id="2-1-设定拒绝外网访问的特定端口"><a href="#2-1-设定拒绝外网访问的特定端口" class="headerlink" title="2.1 设定拒绝外网访问的特定端口"></a>2.1 设定拒绝外网访问的特定端口</h2><p>在入站安全规则的设置界面中点击添加，源保持默认设定”Any“，源端口范围保持默认设定”*“即任意端口，修改目标为”Service Tag“，将目标服务标记为”Internet“，这表示限定与互联网之间的通信规则。然后修改目标端口范围，这里可以以逗号分隔的形式来定义多个目标端口，也可以设定范围。在操作上选择”拒绝“，规则名称自定，保存修改。</p>
+<h2 id="2-1-设定拒绝外网访问的特定端口"><a href="#2-1-设定拒绝外网访问的特定端口" class="headerlink" title="2.1 设定拒绝外网访问的特定端口"></a>2.1 设定拒绝外网访问的特定端口</h2><p>在入站安全规则的设置界面中点击添加，源保持默认设定”Any”，源端口范围保持默认设定”*”即任意端口，修改目标为”Service Tag”，将目标服务标记为”Internet”，这表示限定与互联网之间的通信规则。然后修改目标端口范围，这里可以以逗号分隔的形式来定义多个目标端口，也可以设定范围。在操作上选择 “拒绝”，规则名称自定，保存修改。</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
@@ -31,7 +26,7 @@
                      
                 ></p>
 <p>通过上述规则自定义，可以使外网访问走不了这几个特定的端口，保证了一定的安全。</p>
-<h2 id="2-2-设定开放外部访问的端口"><a href="#2-2-设定开放外部访问的端口" class="headerlink" title="2.2 设定开放外部访问的端口"></a>2.2 设定开放外部访问的端口</h2><p>在下一优先级中，添加一条新的开放外部访问端口的规则。将源和目标均保持默认设定”Any“，将目标端口范围设定为”*“即任意范围，当然也可以自定义范围，操作上选择”允许“，规则名称自定，保存修改。</p>
+<h2 id="2-2-设定开放外部访问的端口"><a href="#2-2-设定开放外部访问的端口" class="headerlink" title="2.2 设定开放外部访问的端口"></a>2.2 设定开放外部访问的端口</h2><p>在下一优先级中，添加一条新的开放外部访问端口的规则。将源和目标均保持默认设定”Any”，将目标端口范围设定为”*”即任意范围，当然也可以自定义范围，操作上选择 “允许”，规则名称自定，保存修改。</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
@@ -53,24 +48,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/11/05/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
+    <title>Hello Hexo</title>
+    <url>/2023/11/06/Hello-Hexo/</url>
+    <content><![CDATA[<h6 id="hexo博客算是初步部署好了，以后就在这里写写东西吧🎉"><a href="#hexo博客算是初步部署好了，以后就在这里写写东西吧🎉" class="headerlink" title="hexo博客算是初步部署好了，以后就在这里写写东西吧🎉"></a>hexo博客算是初步部署好了，以后就在这里写写东西吧🎉</h6>]]></content>
   </entry>
   <entry>
     <title>Markdown的常用语法 I</title>
@@ -151,6 +131,26 @@
       <tags>
         <tag>markdown</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/11/05/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
   </entry>
   <entry>
     <title>Markdown的常用语法 II</title>
