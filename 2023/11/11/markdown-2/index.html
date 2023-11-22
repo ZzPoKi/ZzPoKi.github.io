@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://zzpoki.github.io/images/markdown-2/pic2.jpg">
 <meta property="og:image" content="https://zzpoki.github.io/images/markdown-2/pic3.jpg">
 <meta property="article:published_time" content="2023-11-11T15:40:19.000Z">
-<meta property="article:modified_time" content="2023-11-19T15:47:50.452Z">
+<meta property="article:modified_time" content="2023-11-22T15:38:00.267Z">
 <meta property="article:author" content="PoKi">
 <meta property="article:tag" content="markdown">
 <meta name="twitter:card" content="summary">
@@ -299,8 +299,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-11-19 23:47:50</span>
-            <span class="mobile">2023-11-19 23:47:50</span>
+            <span class="desktop">2023-11-22 23:38</span>
+            <span class="mobile">2023-11-22 23:38</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -337,7 +337,7 @@
             <p>上一篇文章：<a href="/2023/11/10/markdown-1">Markdown的常用语法 I</a></p>
 <span id="more"></span>
 
-<h1 id="1-代码表示"><a href="#1-代码表示" class="headerlink" title="1. 代码表示"></a>1. 代码表示</h1><p>要想把文本中的某个部分以代码的形式表示出来，需要在文本的前后添加各一个反引号<code>`</code>使其被包裹起来。当部分其中本身含有反引号时，则需要前后各添加两个反引号来进行包裹。</p>
+<h2 id="1-代码表示"><a href="#1-代码表示" class="headerlink" title="1. 代码表示"></a>1. 代码表示</h2><p>要想把文本中的某个部分以代码的形式表示出来，需要在文本的前后添加各一个反引号<code>`</code>使其被包裹起来。当部分其中本身含有反引号时，则需要前后各添加两个反引号来进行包裹。</p>
 <div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">`markdown`</span>是一种轻量级的标记语言</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
@@ -346,7 +346,7 @@
 <p>比如：</p>
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">searchFile</span><span class="params">(String fileName, File dir)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (dir != <span class="literal">null</span> &amp;&amp; dir.isDirectory()) &#123;</span><br><span class="line">        <span class="comment">//得到所有的一级文件对象</span></span><br><span class="line">        File[] files = dir.listFiles();</span><br><span class="line">        <span class="keyword">if</span> (files != <span class="literal">null</span> &amp;&amp; files.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (File file : files) &#123;</span><br><span class="line">                <span class="comment">//遍历当前文件夹内的所有文件和文件夹</span></span><br><span class="line">                <span class="keyword">if</span> (file.isFile()) &#123;</span><br><span class="line">                    <span class="comment">//如果找到的是文件</span></span><br><span class="line">                    <span class="keyword">if</span> (file.getName().equals(fileName)) &#123;</span><br><span class="line">                        <span class="comment">//判断找到的文件名与要查找的文件名是否一致</span></span><br><span class="line">                        System.out.println(<span class="string">&quot;所查找的文件路径为：&quot;</span> + file.getAbsolutePath());</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            <span class="type">Process</span> <span class="variable">p</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">                            <span class="type">Runtime</span> <span class="variable">r</span> <span class="operator">=</span> Runtime.getRuntime();</span><br><span class="line">                            p = r.exec(file.getAbsolutePath());<span class="comment">//启动程序</span></span><br><span class="line">                        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                            e.printStackTrace();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    searchFile(fileName, file);<span class="comment">//如果找到的是文件夹，则继续递归,从当前文件夹开始继续查找</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;当前位置不是文件夹&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<h1 id="2-添加链接"><a href="#2-添加链接" class="headerlink" title="2. 添加链接"></a>2. 添加链接</h1><p>如果要在文本中添加一段内含链接的链接文本，则需要在前后依次添加一对中括号<code>[]</code>和圆括号<code>()</code>，中括号填入显示的链接文本的内容，圆括号内填入内含的链接，链接后面还可以选择是否带上双引号<code>&quot;</code>包裹的title，title能够在使鼠标悬置在链接文本上时显示。比如要嵌入google的链接到文本中，则写法为：</p>
+<h2 id="2-添加链接"><a href="#2-添加链接" class="headerlink" title="2. 添加链接"></a>2. 添加链接</h2><p>如果要在文本中添加一段内含链接的链接文本，则需要在前后依次添加一对中括号<code>[]</code>和圆括号<code>()</code>，中括号填入显示的链接文本的内容，圆括号内填入内含的链接，链接后面还可以选择是否带上双引号<code>&quot;</code>包裹的title，title能够在使鼠标悬置在链接文本上时显示。比如要嵌入google的链接到文本中，则写法为：</p>
 <div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">google</span>](<span class="link">https://www.google.com &quot;title&quot;</span>)</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
@@ -356,7 +356,7 @@
 
 <p>效果如下：</p>
 <p><a class="link"   target="_blank" rel="noopener" href="https://www.google.com/" >https://www.google.com <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h1 id="3-插入图片"><a href="#3-插入图片" class="headerlink" title="3. 插入图片"></a>3. 插入图片</h1><p>图片插入和链接嵌入的方法类似，只需要在中括号前额外添加一个感叹号<code>!</code>，然后在中括号内写入Alt标签（可以不写），并圆括号内添加图片链接，其中图片链接可以为本地图片，支持填入对应的绝对路径或相对路径，也可以是网络图片，填入对应的网络链接即可。同样链接后可以选择是否填入图片的title。</p>
+<h2 id="3-插入图片"><a href="#3-插入图片" class="headerlink" title="3. 插入图片"></a>3. 插入图片</h2><p>图片插入和链接嵌入的方法类似，只需要在中括号前额外添加一个感叹号<code>!</code>，然后在中括号内写入Alt标签（可以不写），并圆括号内添加图片链接，其中图片链接可以为本地图片，支持填入对应的绝对路径或相对路径，也可以是网络图片，填入对应的网络链接即可。同样链接后可以选择是否填入图片的title。</p>
 <div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](<span class="link">images/markdown-2/pic1.jpg</span>)</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
@@ -388,7 +388,7 @@
 </tr>
 </thead>
 </table>
-<h1 id="4-表格语法"><a href="#4-表格语法" class="headerlink" title="4. 表格语法"></a>4. 表格语法</h1><p>要在文章中添加表格，应该使用三个或以上连字符（减号）<code>-</code>作为每列标题的底，并以分隔符<code>|</code>来分隔每列，在编写时单元格不需要完全一致对齐。写法举例：</p>
+<h2 id="4-表格语法"><a href="#4-表格语法" class="headerlink" title="4. 表格语法"></a>4. 表格语法</h2><p>要在文章中添加表格，应该使用三个或以上连字符（减号）<code>-</code>作为每列标题的底，并以分隔符<code>|</code>来分隔每列，在编写时单元格不需要完全一致对齐。写法举例：</p>
 <div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 姓名 | 年龄  | 性别 | </span><br><span class="line">| --- |-----|-----|</span><br><span class="line">| A  | 20  | M   |</span><br><span class="line">| B  |  19  |  F  |</span><br><span class="line">|  C |  22 |  F  |</span><br></pre></td></tr></table></figure></div>
 
 <p>效果如下：</p>
@@ -417,7 +417,7 @@
 </tr>
 </tbody></table>
 <p>而如果分别在标题下连字符的左侧、右侧和两侧添加冒号<code>:</code>，则会使文本对齐到表格左侧、右侧和中间。</p>
-<h1 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h1><p>如果要使文章缩略展示，需要在被缩略的文本前添加上<code>&lt;!--more--&gt;</code>，这样只有在点开全文内容时被缩略文本才会显示出来。</p>
+<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h2><p>如果要使文章缩略展示，需要在被缩略的文本前添加上<code>&lt;!--more--&gt;</code>，这样只有在点开全文内容时被缩略文本才会显示出来。</p>
 <p>对于一些被用在markdown语法上的符号，如果要把这些符号本身给显示出来，需要在符号前添加上反斜杠<code>\</code>。</p>
 <p>而要想在文本中添加删除线，则要在目标文本前后各添加两个波浪号<code>~~</code>。</p>
 <div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个~~错误信息~~</span><br></pre></td></tr></table></figure></div>
@@ -430,7 +430,7 @@
 <p>效果即为：</p>
 <p><font color="red">这是一段红色文本</font></p>
 <p>另外，在hexo中还可以安装Mermaid JS模块，用来画流程图。</p>
-<pre class="mermaid">  flowchart TD;
+<pre class="mermaid">    graph TD;
       client1 <--> proxy
       client2 <--> proxy
       client3 <--> proxy
@@ -501,7 +501,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">Markdown的常用语法 II</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BB%A3%E7%A0%81%E8%A1%A8%E7%A4%BA"><span class="nav-text">1. 代码表示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%B7%BB%E5%8A%A0%E9%93%BE%E6%8E%A5"><span class="nav-text">2. 添加链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="nav-text">3. 插入图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E8%A1%A8%E6%A0%BC%E8%AF%AD%E6%B3%95"><span class="nav-text">4. 表格语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%85%B6%E4%BB%96"><span class="nav-text">5. 其他</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%A3%E7%A0%81%E8%A1%A8%E7%A4%BA"><span class="nav-text">1. 代码表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B7%BB%E5%8A%A0%E9%93%BE%E6%8E%A5"><span class="nav-text">2. 添加链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="nav-text">3. 插入图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%A1%A8%E6%A0%BC%E8%AF%AD%E6%B3%95"><span class="nav-text">4. 表格语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%85%B6%E4%BB%96"><span class="nav-text">5. 其他</span></a></li></ol>
 
     </div>
 </div>
