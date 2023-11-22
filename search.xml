@@ -74,73 +74,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Linux命令总结之文件操作</title>
-    <url>/2023/11/21/linux-file-manage/</url>
-    <content><![CDATA[<p>这里展示一些linux系统下常用的文件操作命令，用来管理文件和系统目录。</p>
-<span id="more"></span>
-
-<h2 id="1-Linux的目录结构"><a href="#1-Linux的目录结构" class="headerlink" title="1. Linux的目录结构"></a>1. Linux的目录结构</h2><p>Linux的目录结构是层次化的树状结构，文件目录的顶层即为根目录<code>/</code>，所有文件和目录都是根目录的衍生，以子文件或者是子目录的形式被倒挂在根目录之下，构成整个linux文件系统。</p>
-<pre class="mermaid">   graph TD;
-    / --> bin
-    / --> boot
-    / --> dev
-    / --> etc
-    / --> 1[...]
-    bin --> apt
-    bin --> vim
-    bin --> 2[...]
-    etc --> init.d
-    etc --> 3[...]
-    boot --> 4[...]
-    dev --> 5[...]
-    1[...] --> 6[...]</pre>
-
-<h2 id="2-目录切换"><a href="#2-目录切换" class="headerlink" title="2. 目录切换"></a>2. 目录切换</h2><p>在Linux系统中，切换目录的命令是<code>cd</code>命令，也就是change directory，其基本语法为：</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> [切换目录路径]</span><br></pre></td></tr></table></figure></div>
-
-<p>在所切换的目录路径中，可以是绝对路径或相对路径。比如：</p>
-<p>切换到绝对路径</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/nginx/sites-available</span><br></pre></td></tr></table></figure></div>
-
-<p>这表示将当前目录切换至以根目录为起点的&#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;上。</p>
-<p>切换到相对路径</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> nginx/sites-available</span><br></pre></td></tr></table></figure></div>
-
-<p>这表示在当前目录为&#x2F;etc的位置基础上，将目录切换至&#x2F;etc下的nginx&#x2F;sites-available上。</p>
-<p>而要想将当前目录切换至上一级目录，则采用命令</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br></pre></td></tr></table></figure></div>
-
-<p>如果要切换至上上级目录，则为</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../..</span><br></pre></td></tr></table></figure></div>
-
-<p>以此类推。</p>
-<p>如果要切换至&#x2F;home目录，可以使用</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br></pre></td></tr></table></figure></div>
-
-<p>或者直接使用</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span></span><br></pre></td></tr></table></figure></div>
-
-<p>想要将当前目录切换至上一次的工作目录，可以使用</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> -</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="3-目录列出显示"><a href="#3-目录列出显示" class="headerlink" title="3. 目录列出显示"></a>3. 目录列出显示</h2><p>要想列出当前目录下的文件和子目录，应该使用<code>ls</code>也就是list命令，基本语法为</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> [选项] [文件目录]</span><br></pre></td></tr></table></figure></div>
-
-<p>其中一些常用选项为</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l <span class="comment">#以详细列表的形式列出文件和目录的权限、所有者、大小等信息</span></span><br><span class="line"><span class="built_in">ls</span> -a <span class="comment">#显示所有文件目录，包括隐藏文件</span></span><br><span class="line"><span class="built_in">ls</span> -t <span class="comment">#以修改时间排序显示</span></span><br><span class="line"><span class="built_in">ls</span> -R <span class="comment">#递归显示当前目录和子目录的所有内容</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure></div>
-
-<p>想要列出其他目录的文件和子目录，同<code>cd</code>命令一样，只需要在<code>ls</code>后添加目标路径的绝对或相对路径即可。</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /home/user</span><br></pre></td></tr></table></figure></div>
-
-<p>想要查看当前所在目录，使用命令</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure></div>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>文件操作</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown的常用语法 I</title>
     <url>/2023/11/10/markdown-1/</url>
     <content><![CDATA[<p>markdown是一种轻量级的标记语言，它可以基于纯文本的形式来对文档进行编辑和修改。这里展示一些markdown的常用语法，方便个人在hexo博客下撰写自己的文章。</p>
@@ -218,6 +151,73 @@
 ]]></content>
       <tags>
         <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux命令总结之文件操作</title>
+    <url>/2023/11/21/linux-file-manage/</url>
+    <content><![CDATA[<p>这里展示一些linux系统下常用的文件操作命令，用来管理文件和系统目录。</p>
+<span id="more"></span>
+
+<h2 id="1-Linux的目录结构"><a href="#1-Linux的目录结构" class="headerlink" title="1. Linux的目录结构"></a>1. Linux的目录结构</h2><p>Linux的目录结构是层次化的树状结构，文件目录的顶层即为根目录<code>/</code>，所有文件和目录都是根目录的衍生，以子文件或者是子目录的形式被倒挂在根目录之下，构成整个linux文件系统。</p>
+<pre class="mermaid">   graph TD;
+    / --> bin
+    / --> boot
+    / --> dev
+    / --> etc
+    / --> 1[...]
+    bin --> apt
+    bin --> vim
+    bin --> 2[...]
+    etc --> init.d
+    etc --> 3[...]
+    boot --> 4[...]
+    dev --> 5[...]
+    1[...] --> 6[...]</pre>
+
+<h2 id="2-目录切换"><a href="#2-目录切换" class="headerlink" title="2. 目录切换"></a>2. 目录切换</h2><p>在Linux系统中，切换目录的命令是<code>cd</code>命令，也就是change directory，其基本语法为：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> [切换目录路径]</span><br></pre></td></tr></table></figure></div>
+
+<p>在所切换的目录路径中，可以是绝对路径或相对路径。比如：</p>
+<p>切换到绝对路径</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/nginx/sites-available</span><br></pre></td></tr></table></figure></div>
+
+<p>这表示将当前目录切换至以根目录为起点的&#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;上。</p>
+<p>切换到相对路径</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> nginx/sites-available</span><br></pre></td></tr></table></figure></div>
+
+<p>这表示在当前目录为&#x2F;etc的位置基础上，将目录切换至&#x2F;etc下的nginx&#x2F;sites-available上。</p>
+<p>而要想将当前目录切换至上一级目录，则采用命令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br></pre></td></tr></table></figure></div>
+
+<p>如果要切换至上上级目录，则为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../..</span><br></pre></td></tr></table></figure></div>
+
+<p>以此类推。</p>
+<p>如果要切换至&#x2F;home目录，可以使用</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br></pre></td></tr></table></figure></div>
+
+<p>或者直接使用</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span></span><br></pre></td></tr></table></figure></div>
+
+<p>想要将当前目录切换至上一次的工作目录，可以使用</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> -</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-目录列出显示"><a href="#3-目录列出显示" class="headerlink" title="3. 目录列出显示"></a>3. 目录列出显示</h2><p>要想列出当前目录下的文件和子目录，应该使用<code>ls</code>也就是list命令，基本语法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> [选项] [文件目录]</span><br></pre></td></tr></table></figure></div>
+
+<p>其中一些常用选项为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l <span class="comment">#以详细列表的形式列出文件和目录的权限、所有者、大小等信息</span></span><br><span class="line"><span class="built_in">ls</span> -a <span class="comment">#显示所有文件目录，包括隐藏文件</span></span><br><span class="line"><span class="built_in">ls</span> -t <span class="comment">#以修改时间排序显示</span></span><br><span class="line"><span class="built_in">ls</span> -R <span class="comment">#递归显示当前目录和子目录的所有内容</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure></div>
+
+<p>想要列出其他目录的文件和子目录，同<code>cd</code>命令一样，只需要在<code>ls</code>后添加目标路径的绝对或相对路径即可。</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /home/user</span><br></pre></td></tr></table></figure></div>
+
+<p>想要查看当前所在目录，使用命令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure></div>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>文件操作</tag>
       </tags>
   </entry>
   <entry>
