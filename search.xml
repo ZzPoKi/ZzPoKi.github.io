@@ -135,7 +135,14 @@
 <p>想要查看当前所在目录，使用命令</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure></div>
 
-<h2 id="4-目录文件的创建和删除"><a href="#4-目录文件的创建和删除" class="headerlink" title="4. 目录文件的创建和删除"></a>4. 目录文件的创建和删除</h2><h3 id="4-1-目录和文件的创建"><a href="#4-1-目录和文件的创建" class="headerlink" title="4.1 目录和文件的创建"></a>4.1 目录和文件的创建</h3><p>在Linux中，想要创建一个空文件，需要使用<code>touch</code>命令，写法如下：</p>
+<p>而想要查看整个目录的完整树状目录结构，可以通过安装tree命令来实现。</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install tree <span class="comment">#Ubuntu</span></span><br></pre></td></tr></table></figure></div>
+
+<p>通过tree命令，即可列出某个目录的所有内容的树状结构。</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">tree [目录路径]</span><br></pre></td></tr></table></figure></div>
+
+<p>同样目录路径遵循相对路径和绝对路径的原则。</p>
+<h2 id="4-目录与文件的创建和删除"><a href="#4-目录与文件的创建和删除" class="headerlink" title="4. 目录与文件的创建和删除"></a>4. 目录与文件的创建和删除</h2><h3 id="4-1-目录和文件的创建"><a href="#4-1-目录和文件的创建" class="headerlink" title="4.1 目录和文件的创建"></a>4.1 目录和文件的创建</h3><p>在Linux中，想要创建一个空文件，需要使用<code>touch</code>命令，写法如下：</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">touch</span> [选项] filename <span class="comment">#选项可选，filename即为文件名</span></span><br></pre></td></tr></table></figure></div>
 
 <p>这代表在当前目录下创建一个空文件，如果文件已存在，则更新文件的访问和修改时间。</p>
@@ -152,6 +159,7 @@
 <p>如果要创建一个新的空目录，需要使用<code>mkdir</code>命令，即make directory。</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> new_dir <span class="comment">#在当前目录下创建一个新的子目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p parent_dir/child_dir <span class="comment">#即在当前目录下创建一个parent空目录，并在其中再创建一个child空目录，实现多层嵌套</span></span><br></pre></td></tr></table></figure></div>
 
+<p>目录的创建同样遵循相对路径和绝对路径的规则，另外需要注意在Linux下的同一目录中创建的文件夹和文件名称不得重复。</p>
 <h3 id="4-2-目录和文件的删除"><a href="#4-2-目录和文件的删除" class="headerlink" title="4.2 目录和文件的删除"></a>4.2 目录和文件的删除</h3><p>在Linux中删除文件，使用的是<code>rm</code>命令，即remove。</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> [选项] filename</span><br></pre></td></tr></table></figure></div>
 
@@ -163,6 +171,89 @@
 
 <p>而想要删除一个空目录，则需要使用<code>rmdir</code>命令，即remove directory。</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rmdir</span> [选项] empty_dir <span class="comment">#选项同rm命令的选项</span></span><br></pre></td></tr></table></figure></div>
+
+<p>比如在当前目录下存在子目录结构</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">top</span><br><span class="line">└── parent</span><br><span class="line">    └── child</span><br></pre></td></tr></table></figure></div>
+
+<p>在均为空目录的前提下，要想删除top目录及其以下所有子目录，则应该输入命令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rmdir</span> -p top/parent/child</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="5-目录与文件的复制和移动"><a href="#5-目录与文件的复制和移动" class="headerlink" title="5. 目录与文件的复制和移动"></a>5. 目录与文件的复制和移动</h2><p>要将文件从一个目录复制到另一个目录，需要用到<code>cp</code>命令，即copy，写法上在当前文件路径和目标路径之间以空格隔开。</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> [选项] [当前文件所在路径] [目标文件路径]</span><br></pre></td></tr></table></figure></div>
+
+<p>比如将一个doc.txt文件从my_dir复制到new_dir中，并将文件名修改为newdoc.txt，则应该输入命令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> my_dir/doc.txt new_dir/newdoc.txt</span><br></pre></td></tr></table></figure></div>
+
+<p>同样，文件路径遵循绝对路径和相对路径原则。</p>
+<p>而要想将整个目录连同其所有内容复制到另一个目录中，则需要使用<code>-r</code>进行递归复制</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r parent/child new_dir</span><br></pre></td></tr></table></figure></div>
+
+<p>目录和文件的移动（剪切）和复制的操作类似，使用的是<code>mv</code>即move命令，写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mv</span> [选项] [当前文件所在路径] [目标文件路径]</span><br></pre></td></tr></table></figure></div>
+
+<p>同样地，要移动整个文件夹及其所有内容，需要使用<code>-r</code>进行递归移动。</p>
+<p>另外如果想要在当前目录下给文件改名，也可以使用<code>mv</code>命令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mv</span> filename new_filename</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="6-文件的打包和解压缩"><a href="#6-文件的打包和解压缩" class="headerlink" title="6. 文件的打包和解压缩"></a>6. 文件的打包和解压缩</h2><h3 id="6-1-tar命令的压缩和解压缩"><a href="#6-1-tar命令的压缩和解压缩" class="headerlink" title="6.1 tar命令的压缩和解压缩"></a>6.1 tar命令的压缩和解压缩</h3><p>要在Linux下对多个文件进行打包、解包、查看等操作，比较常用的是<code>tar</code>命令，写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">tar [选项] [打包归档文件] [被打包文件...] </span><br></pre></td></tr></table></figure></div>
+
+<p>其中<code>tar</code>命令的常用选项有</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">-c <span class="comment">#创建一个新的打包归档文件</span></span><br><span class="line">-v <span class="comment">#在打包过程中列出打包文件的详细信息</span></span><br><span class="line">-f <span class="comment">#指定打包归档文件的名称，这个选项必填</span></span><br><span class="line">-x <span class="comment">#对打包归档文件进行解包</span></span><br><span class="line">-t <span class="comment">#显示打包归档文件中的内容</span></span><br><span class="line">-u <span class="comment">#更新现有归档文件</span></span><br></pre></td></tr></table></figure></div>
+
+<p>比如要将file1、file2、file3、file4四个文件一起打包进all_file.tar这个归档文件中，应该使用<code>-c</code>选项，可以这样写</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvf all_file.tar file1 file2 file3 file4</span><br></pre></td></tr></table></figure></div>
+
+<p>而这时要想查看打包归档文件all_file.tar中的内容，应该使用<code>-t</code>选项，可以这样写</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">tar -tvf all_file.tar</span><br></pre></td></tr></table></figure></div>
+
+<p>得到输出举例如下</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">-rw-r--r-- root/root  11888896 2023-11-27 14:42 file1</span><br><span class="line">-rw-r--r-- root/root  11888896 2023-11-27 14:44 file2</span><br><span class="line">-rw-r--r-- root/root  11888896 2023-11-27 14:44 file3</span><br><span class="line">-rw-r--r-- root/root  11888896 2023-11-27 14:44 file4</span><br></pre></td></tr></table></figure></div>
+
+<p>而想要解包归档文件，应该使用<code>-x</code>选项，写法可以为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf all_file.tar</span><br></pre></td></tr></table></figure></div>
+
+<p>而如果要更新归档文件，应该使用<code>-u</code>选项，比如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">tar -uvf all_file.tar newfile</span><br></pre></td></tr></table></figure></div>
+
+<p>这表示将newfile添加到all_file.tar归档文件中，实现归档文件的更新。</p>
+<p>而要想对多个文件进行同时打包压缩，需要用到压缩工具，常见的压缩工具有gzip、bzip2、xz，这里以gzip为例，比如要将file1、file2、file3、file4四个文件一起打包进all_file.tar这个归档文件中并同时进行压缩，tar命令可以写为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf all_file.tar.gz file1 file2 file3 file4</span><br></pre></td></tr></table></figure></div>
+
+<p>其中的<code>-z</code>选项即为gzip的压缩选项，其扩展名一般是.gz。</p>
+<p>这时如果要解压缩并解包.tar.gz文件，同样使用<code>-x</code>的tar命令选项即可。</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf all_file.tar.gz</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="6-2-zip命令的压缩和解压缩"><a href="#6-2-zip命令的压缩和解压缩" class="headerlink" title="6.2 zip命令的压缩和解压缩"></a>6.2 zip命令的压缩和解压缩</h3><p>有些Linux系统可能并不自带zip，首先需要通过apt&#x2F;yum软件安装包工具进行安装。</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install zip</span><br></pre></td></tr></table></figure></div>
+
+<p>对于使用<code>zip</code>命令进行文件或目录压缩，其写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">zip [选项] [压缩文件名] [被执行文件或目录]</span><br></pre></td></tr></table></figure></div>
+
+<p>其中常用的选项有</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">-r <span class="comment">#递归压缩，在压缩目录时需要用到</span></span><br><span class="line">-d <span class="comment">#删除压缩文件中的某个文件或目录</span></span><br><span class="line">-e <span class="comment">#为压缩文件设置解压密码</span></span><br></pre></td></tr></table></figure></div>
+
+<p>而要想在zip文件中添加新的文件或目录，其写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">zip all_file.zip new_file/new_dir <span class="comment">#如果是添加目录的话需要添加-r选项</span></span><br></pre></td></tr></table></figure></div>
+
+<p>对于文件的解压和查看，则需要用到<code>unzip</code>命令。</p>
+<p>默认情况下使用<code>unzip</code>命令会将文件解压缩在当前目录下，要想将zip压缩文件解压缩到指定目录，需要用到<code>-d</code>选项</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">unzip all_file.zip -d path/new_dir_for_zip</span><br></pre></td></tr></table></figure></div>
+
+<p>要想指定仅仅解压缩的特定文件，或者排除特定文件，其写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">unzip all_file.zip thisfile.txt <span class="comment">#指定特定文件</span></span><br><span class="line">unzip all_file.zip -x excludefile.txt <span class="comment">#排除特定文件</span></span><br></pre></td></tr></table></figure></div>
+
+<p>另外要想查看压缩包内的内容，写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">unzip -l all-file.zip</span><br><span class="line">unzip -lv all-file.zip <span class="comment">#显示详细信息</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+
+
+
+
 
 
 
