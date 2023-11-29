@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello Hexo</title>
-    <url>/2023/11/06/hello-hexo/</url>
-    <content><![CDATA[<p>hexo博客算是初步部署好了，以后就在这里写写东西吧。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>令Azure VPS的公共ip开放外部访问</title>
     <url>/2023/11/18/azure-access/</url>
     <content><![CDATA[<p>对于刚创建的Azure VM（VPS）来说，由于Azure防火墙的存在，默认情况下只有少数几个端口（如SSH服务的22端口）可供外部访问使用。而要想将更多的端口开放出来，则需要额外添加入站的端口规则。</p>
@@ -54,9 +48,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello Hexo</title>
+    <url>/2023/11/06/hello-hexo/</url>
+    <content><![CDATA[<p>hexo博客算是初步部署好了，以后就在这里写写东西吧。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/11/05/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Linux命令总结之文件操作</title>
     <url>/2023/11/21/linux-file-manage/</url>
-    <content><![CDATA[<p>这里展示一些linux系统下常用的文件操作命令，用来管理文件和系统目录。</p>
+    <content><![CDATA[<p>这里总结一些linux系统下常用的文件操作命令，用来管理文件和系统目录。</p>
 <span id="more"></span>
 
 <h2 id="1-Linux的目录结构"><a href="#1-Linux的目录结构" class="headerlink" title="1. Linux的目录结构"></a>1. Linux的目录结构</h2><p>Linux的目录结构是层次化的树状结构，文件目录的顶层即为根目录<code>/</code>，所有文件和目录都是根目录的衍生，以子文件或者是子目录的形式被倒挂在根目录之下，构成整个linux文件系统。</p>
@@ -75,6 +95,83 @@
     dev --> 5[...]
     1[...] --> 6[...]</pre>
 
+<h3 id="1-1-目录功能"><a href="#1-1-目录功能" class="headerlink" title="1.1 目录功能"></a>1.1 目录功能</h3><p>根目录下的不同子目录均承担着不同的作用，通常来说根目录衍生出来的一级目录可以简单归纳为如下功能作用</p>
+<table>
+<thead>
+<tr>
+<th>一级目录</th>
+<th>功能作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;bin</td>
+<td>存放系统命令，均为一些可执行的二进制文件</td>
+</tr>
+<tr>
+<td>&#x2F;boot</td>
+<td>存放引导加载程序和内核镜像文件，确保系统能被正常引导启动</td>
+</tr>
+<tr>
+<td>&#x2F;dev</td>
+<td>存放系统所使用设备文件，比如硬盘分区、终端、串口等文件</td>
+</tr>
+<tr>
+<td>&#x2F;etc</td>
+<td>存放系统服务和系统全局的配置文件，如网络配置、软件包配置、用户组配置等</td>
+</tr>
+<tr>
+<td>&#x2F;home</td>
+<td>存放每个用户的主目录，也被称为家目录</td>
+</tr>
+<tr>
+<td>&#x2F;lib</td>
+<td>存放系统运行时的共享程序库，供系统不同程序共享使用</td>
+</tr>
+<tr>
+<td>&#x2F;lost+found</td>
+<td>用于临时保存丢失的文件</td>
+</tr>
+<tr>
+<td>&#x2F;media</td>
+<td>用于挂载外部可移动设备，比如一些驱动</td>
+</tr>
+<tr>
+<td>&#x2F;mnt</td>
+<td>用于手动挂载一些可移动设备</td>
+</tr>
+<tr>
+<td>&#x2F;opt</td>
+<td>用于存放一些第三方软件包和应用程序</td>
+</tr>
+<tr>
+<td>&#x2F;proc</td>
+<td>实质为由内存映射出来的虚拟目录，存放在内存中，包含当前运行进程和内核参数的动态信息</td>
+</tr>
+<tr>
+<td>&#x2F;root</td>
+<td>根用户的家目录，用于存放根用户的使用文件，只有根用户才有权限访问</td>
+</tr>
+<tr>
+<td>&#x2F;srv</td>
+<td>存放服务相关的文件和数据</td>
+</tr>
+<tr>
+<td>&#x2F;sys</td>
+<td>存放内核参数运行时的访问、驱动以及设备的相关信息</td>
+</tr>
+<tr>
+<td>&#x2F;tmp</td>
+<td>用于存放临时文件</td>
+</tr>
+<tr>
+<td>&#x2F;usr</td>
+<td>存放系统用户使用的应用程序和文件</td>
+</tr>
+<tr>
+<td>&#x2F;var</td>
+<td>存放动态变化的数据文件，比如日志文件、缓存文件等</td>
+</tr>
+</tbody></table>
 <h2 id="2-目录切换"><a href="#2-目录切换" class="headerlink" title="2. 目录切换"></a>2. 目录切换</h2><p>在Linux系统中，切换目录的命令是<code>cd</code>命令，也就是change directory，其基本语法为：</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> [切换目录路径]</span><br></pre></td></tr></table></figure></div>
 
@@ -129,13 +226,13 @@
 <p>想要创建多个文件，只需要以空格隔开。</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">touch</span> file1 file2 file3</span><br></pre></td></tr></table></figure></div>
 
+<p>而要想创建并向文件写入内容，可以使用<code>echo</code>命令。</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> your_text &gt; file.txt <span class="comment">#覆盖文件原有内容</span></span><br><span class="line"><span class="built_in">echo</span> your_text &gt;&gt; file.txt <span class="comment">#向文件原有内容进行追加</span></span><br></pre></td></tr></table></figure></div>
+
 <p>另外也可以使用文本编辑器来创建并打开文件，比如使用vim、vi、nano这类文本编辑命令，写法为：</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">nano readme.md</span><br></pre></td></tr></table></figure></div>
 
 <p>这表示创建一个名为readme.md的文件并打开进行编辑。</p>
-<p>而想要查看文件内容，则需要输入<code>cat</code>命令。</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> readme.md</span><br></pre></td></tr></table></figure></div>
-
 <p>如果要创建一个新的空目录，需要使用<code>mkdir</code>命令，即make directory。</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> new_dir <span class="comment">#在当前目录下创建一个新的子目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p parent_dir/child_dir <span class="comment">#即在当前目录下创建一个parent空目录，并在其中再创建一个child空目录，实现多层嵌套</span></span><br></pre></td></tr></table></figure></div>
 
@@ -224,20 +321,48 @@
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">unzip all_file.zip thisfile.txt <span class="comment">#指定特定文件</span></span><br><span class="line">unzip all_file.zip -x excludefile.txt <span class="comment">#排除特定文件</span></span><br></pre></td></tr></table></figure></div>
 
 <p>另外要想查看压缩包内的内容，写法为</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">unzip -l all-file.zip</span><br><span class="line">unzip -lv all-file.zip <span class="comment">#显示详细信息</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">unzip -l all_file.zip</span><br><span class="line">unzip -lv all_file.zip <span class="comment">#显示详细信息</span></span><br></pre></td></tr></table></figure></div>
 
+<h2 id="7-其他"><a href="#7-其他" class="headerlink" title="7. 其他"></a>7. 其他</h2><h3 id="7-1-cat命令"><a href="#7-1-cat命令" class="headerlink" title="7.1 cat命令"></a>7.1 cat命令</h3><p>想要查看某个文件的内容，最常用的命令是<code>cat</code>命令，最简单的写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> nginx.conf</span><br></pre></td></tr></table></figure></div>
 
+<p>即为打开并查看nginx.conf这个文件。</p>
+<p>当然<code>cat</code>也支持查看多个文件</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> file1 file2 file3</span><br></pre></td></tr></table></figure></div>
 
+<p>比较常用的<code>cat</code>选项有<code>-n</code>、<code>-b</code>、<code>-E</code>等</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> -n file <span class="comment">#显示行号</span></span><br><span class="line"><span class="built_in">cat</span> -b file <span class="comment">#显示行号，但只对非空行进行编号，不计空行</span></span><br><span class="line"><span class="built_in">cat</span> -E file <span class="comment">#在每行的末尾标记$符号</span></span><br></pre></td></tr></table></figure></div>
 
+<p>另外在创建文件中也可以使用<code>cat</code>，并同时输入多行内容，写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt;&gt; new_file.txt &lt;&lt; <span class="string">EOF #EOF</span>即为结束行的标记</span><br><span class="line">&gt; this is a new file</span><br><span class="line">&gt; line1 </span><br><span class="line">&gt; line2 </span><br><span class="line">&gt; line3 </span><br><span class="line">&gt; line4</span><br><span class="line">&gt; EOF <span class="comment">#输入完毕后添加EOF标记，即可保存退出</span></span><br></pre></td></tr></table></figure></div>
 
+<h3 id="7-2-tail命令"><a href="#7-2-tail命令" class="headerlink" title="7.2 tail命令"></a>7.2 tail命令</h3><p><code>tail</code>命令通常用于查看日志文件和监控文件的实时变化，语法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">tail</span> [选项] [目标文件]</span><br></pre></td></tr></table></figure></div>
 
+<p>搭配一些常用的选项，可以这样写</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">tail</span> -f file.txt <span class="comment">#实时显示文本内容及变化，比如日志文件的实时变化</span></span><br><span class="line"><span class="built_in">tail</span> -n 20 file.txt <span class="comment">#显示file.txt文件最后的20行内容</span></span><br><span class="line"><span class="built_in">tail</span> -c 100 file.txt <span class="comment">#显示file.txt文件最后的100个字节的内容</span></span><br></pre></td></tr></table></figure></div>
 
+<h3 id="7-3-wc命令"><a href="#7-3-wc命令" class="headerlink" title="7.3 wc命令"></a>7.3 wc命令</h3><p><code>wc</code>命令能用来统计查看文本行数、字数、字符数的统计命令，常见用法有</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">wc</span> -l file.txt <span class="comment">#显示文件文本的行数</span></span><br><span class="line"><span class="built_in">wc</span> -w file.txt <span class="comment">#显示文件文本的字数</span></span><br><span class="line"><span class="built_in">wc</span> -c file.txt <span class="comment">#显示文件文本的字符数</span></span><br></pre></td></tr></table></figure></div>
 
+<p>当然<code>wc</code>命令还支持同时显示多个文件的文本信息</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">wc</span> -l /var/log/nginx/* <span class="comment">#显示nginx目录下所有文件文本的行数</span></span><br></pre></td></tr></table></figure></div>
 
+<h3 id="7-4-du命令"><a href="#7-4-du命令" class="headerlink" title="7.4 du命令"></a>7.4 du命令</h3><p><code>du</code>命令能用来查看文本或目录所占磁盘的空间，常见用法有</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">du</span> -s file1 file2 file3 <span class="comment">#查看多个文件的大小，一般-s是默认选项</span></span><br><span class="line"><span class="built_in">du</span> -h <span class="built_in">dir</span>/file <span class="comment">#以易读方式查看dir目录下的file文件的大小</span></span><br><span class="line"><span class="built_in">du</span> -c <span class="built_in">dir</span>/* <span class="comment">#显示dir目录下所有文件和子目录的大小，并计算出总和</span></span><br></pre></td></tr></table></figure></div>
 
+<p>当然同其他Linux命令一样，<code>du</code>命令的选项也可以组合使用，如<code>-ch</code>、<code>-sh</code>等。</p>
+<h3 id="7-5-find命令"><a href="#7-5-find命令" class="headerlink" title="7.5 find命令"></a>7.5 find命令</h3><p><code>find</code>命令能用于文件或目录的查找，语法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">find [搜索范围目录] [选项] [对象]</span><br></pre></td></tr></table></figure></div>
 
+<p>常用的选项有<code>-type</code>、<code>-name</code>、<code>-size</code>等，当然也可以组合使用，比如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">find /var -<span class="built_in">type</span> f -name nginx.log <span class="comment">#f代表的是文本文件类型，d则为目录类型</span></span><br></pre></td></tr></table></figure></div>
 
+<p>这表示在&#x2F;var目录下查找名称为nginx.log的文本类型文件。</p>
+<p>当然<code>find</code>命令也可以进行模糊搜素，通过和*通配符搭配的形式，比如说</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">find /var -<span class="built_in">type</span> f -name *.<span class="built_in">log</span></span><br></pre></td></tr></table></figure></div>
 
+<p>这表示在&#x2F;var目录下查找所有以.log结尾的文本类型文件。</p>
 ]]></content>
       <tags>
         <tag>Linux</tag>
@@ -323,26 +448,6 @@
       <tags>
         <tag>markdown</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2023/11/05/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
   </entry>
   <entry>
     <title>Markdown的常用语法 II</title>

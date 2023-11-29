@@ -24,15 +24,15 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="这里展示一些linux系统下常用的文件操作命令，用来管理文件和系统目录。">
+        <meta name="description" content="这里总结一些linux系统下常用的文件操作命令，用来管理文件和系统目录。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux命令总结之文件操作">
 <meta property="og:url" content="https://zzpoki.github.io/2023/11/21/linux-file-manage/">
 <meta property="og:site_name" content="PoKi&#39;s Blog">
-<meta property="og:description" content="这里展示一些linux系统下常用的文件操作命令，用来管理文件和系统目录。">
+<meta property="og:description" content="这里总结一些linux系统下常用的文件操作命令，用来管理文件和系统目录。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-11-21T15:50:33.000Z">
-<meta property="article:modified_time" content="2023-11-27T16:17:44.763Z">
+<meta property="article:modified_time" content="2023-11-29T15:02:26.903Z">
 <meta property="article:author" content="PoKi">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="文件操作">
@@ -73,7 +73,7 @@
     
     <script id="hexo-configurations">
     window.config = {"hostname":"zzpoki.github.io","root":"/","language":"en","path":"search.xml"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":false,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#6D87C8","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":false},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":false,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/bg-light.png","dark":"/images/bg-dark.png"},"title":"PoKi's Blog","subtitle":{"text":["welcome to my site"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#08515F","dark":"#B4ECF6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.5.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"tags":{"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"}},"categories":{"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"}},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Pictures":{"path":"/masonry/","icon":"fa-regular fa-image"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"right","first_item":"menu","announcement":null,"links":{"Github":{"path":"https://github.com/ZzPoKi","icon":"fa-brands fa-github"},"Osu!":{"path":"https://osu.ppy.sh/users/31218446","icon":"fa-regular fa-face-smile-wink"}}},"article_date_format":"YYYY-MM-DD","categories":{"enable":true,"limit":5},"tags":{"enable":true,"limit":5}},"footerStart":"2023/11/01 00:00:00"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":false},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":false,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#6D87C8","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":false},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":false,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/bg-light.png","dark":"/images/bg-dark.png"},"title":"PoKi's Blog","subtitle":{"text":["welcome to my site"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#08515F","dark":"#B4ECF6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.5.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"tags":{"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"}},"categories":{"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"}},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Pictures":{"path":"/masonry/","icon":"fa-regular fa-image"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"right","first_item":"menu","announcement":null,"links":{"Github":{"path":"https://github.com/ZzPoKi","icon":"fa-brands fa-github"},"Osu!":{"path":"https://osu.ppy.sh/users/31218446","icon":"fa-regular fa-face-smile-wink"}}},"article_date_format":"YYYY-MM-DD","categories":{"enable":true,"limit":5},"tags":{"enable":true,"limit":5}},"footerStart":"2023/11/01 00:00:00"};
     window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
     window.data = {"masonry":true};
   </script>
@@ -296,8 +296,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-11-28 00:17:44</span>
-            <span class="mobile">2023-11-28 00:17:44</span>
+            <span class="desktop">2023-11-29 23:02:26</span>
+            <span class="mobile">2023-11-29 23:02:26</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -335,7 +335,7 @@
 
 
         <div class="article-content markdown-body">
-            <p>这里展示一些linux系统下常用的文件操作命令，用来管理文件和系统目录。</p>
+            <p>这里总结一些linux系统下常用的文件操作命令，用来管理文件和系统目录。</p>
 <span id="more"></span>
 
 <h2 id="1-Linux的目录结构"><a href="#1-Linux的目录结构" class="headerlink" title="1. Linux的目录结构"></a>1. Linux的目录结构</h2><p>Linux的目录结构是层次化的树状结构，文件目录的顶层即为根目录<code>/</code>，所有文件和目录都是根目录的衍生，以子文件或者是子目录的形式被倒挂在根目录之下，构成整个linux文件系统。</p>
@@ -354,6 +354,83 @@
     dev --> 5[...]
     1[...] --> 6[...]</pre>
 
+<h3 id="1-1-目录功能"><a href="#1-1-目录功能" class="headerlink" title="1.1 目录功能"></a>1.1 目录功能</h3><p>根目录下的不同子目录均承担着不同的作用，通常来说根目录衍生出来的一级目录可以简单归纳为如下功能作用</p>
+<table>
+<thead>
+<tr>
+<th>一级目录</th>
+<th>功能作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;bin</td>
+<td>存放系统命令，均为一些可执行的二进制文件</td>
+</tr>
+<tr>
+<td>&#x2F;boot</td>
+<td>存放引导加载程序和内核镜像文件，确保系统能被正常引导启动</td>
+</tr>
+<tr>
+<td>&#x2F;dev</td>
+<td>存放系统所使用设备文件，比如硬盘分区、终端、串口等文件</td>
+</tr>
+<tr>
+<td>&#x2F;etc</td>
+<td>存放系统服务和系统全局的配置文件，如网络配置、软件包配置、用户组配置等</td>
+</tr>
+<tr>
+<td>&#x2F;home</td>
+<td>存放每个用户的主目录，也被称为家目录</td>
+</tr>
+<tr>
+<td>&#x2F;lib</td>
+<td>存放系统运行时的共享程序库，供系统不同程序共享使用</td>
+</tr>
+<tr>
+<td>&#x2F;lost+found</td>
+<td>用于临时保存丢失的文件</td>
+</tr>
+<tr>
+<td>&#x2F;media</td>
+<td>用于挂载外部可移动设备，比如一些驱动</td>
+</tr>
+<tr>
+<td>&#x2F;mnt</td>
+<td>用于手动挂载一些可移动设备</td>
+</tr>
+<tr>
+<td>&#x2F;opt</td>
+<td>用于存放一些第三方软件包和应用程序</td>
+</tr>
+<tr>
+<td>&#x2F;proc</td>
+<td>实质为由内存映射出来的虚拟目录，存放在内存中，包含当前运行进程和内核参数的动态信息</td>
+</tr>
+<tr>
+<td>&#x2F;root</td>
+<td>根用户的家目录，用于存放根用户的使用文件，只有根用户才有权限访问</td>
+</tr>
+<tr>
+<td>&#x2F;srv</td>
+<td>存放服务相关的文件和数据</td>
+</tr>
+<tr>
+<td>&#x2F;sys</td>
+<td>存放内核参数运行时的访问、驱动以及设备的相关信息</td>
+</tr>
+<tr>
+<td>&#x2F;tmp</td>
+<td>用于存放临时文件</td>
+</tr>
+<tr>
+<td>&#x2F;usr</td>
+<td>存放系统用户使用的应用程序和文件</td>
+</tr>
+<tr>
+<td>&#x2F;var</td>
+<td>存放动态变化的数据文件，比如日志文件、缓存文件等</td>
+</tr>
+</tbody></table>
 <h2 id="2-目录切换"><a href="#2-目录切换" class="headerlink" title="2. 目录切换"></a>2. 目录切换</h2><p>在Linux系统中，切换目录的命令是<code>cd</code>命令，也就是change directory，其基本语法为：</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> [切换目录路径]</span><br></pre></td></tr></table></figure></div>
 
@@ -408,13 +485,13 @@
 <p>想要创建多个文件，只需要以空格隔开。</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> file1 file2 file3</span><br></pre></td></tr></table></figure></div>
 
+<p>而要想创建并向文件写入内容，可以使用<code>echo</code>命令。</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> your_text &gt; file.txt <span class="comment">#覆盖文件原有内容</span></span><br><span class="line"><span class="built_in">echo</span> your_text &gt;&gt; file.txt <span class="comment">#向文件原有内容进行追加</span></span><br></pre></td></tr></table></figure></div>
+
 <p>另外也可以使用文本编辑器来创建并打开文件，比如使用vim、vi、nano这类文本编辑命令，写法为：</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano readme.md</span><br></pre></td></tr></table></figure></div>
 
 <p>这表示创建一个名为readme.md的文件并打开进行编辑。</p>
-<p>而想要查看文件内容，则需要输入<code>cat</code>命令。</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> readme.md</span><br></pre></td></tr></table></figure></div>
-
 <p>如果要创建一个新的空目录，需要使用<code>mkdir</code>命令，即make directory。</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> new_dir <span class="comment">#在当前目录下创建一个新的子目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p parent_dir/child_dir <span class="comment">#即在当前目录下创建一个parent空目录，并在其中再创建一个child空目录，实现多层嵌套</span></span><br></pre></td></tr></table></figure></div>
 
@@ -503,20 +580,48 @@
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip all_file.zip thisfile.txt <span class="comment">#指定特定文件</span></span><br><span class="line">unzip all_file.zip -x excludefile.txt <span class="comment">#排除特定文件</span></span><br></pre></td></tr></table></figure></div>
 
 <p>另外要想查看压缩包内的内容，写法为</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip -l all-file.zip</span><br><span class="line">unzip -lv all-file.zip <span class="comment">#显示详细信息</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip -l all_file.zip</span><br><span class="line">unzip -lv all_file.zip <span class="comment">#显示详细信息</span></span><br></pre></td></tr></table></figure></div>
 
+<h2 id="7-其他"><a href="#7-其他" class="headerlink" title="7. 其他"></a>7. 其他</h2><h3 id="7-1-cat命令"><a href="#7-1-cat命令" class="headerlink" title="7.1 cat命令"></a>7.1 cat命令</h3><p>想要查看某个文件的内容，最常用的命令是<code>cat</code>命令，最简单的写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> nginx.conf</span><br></pre></td></tr></table></figure></div>
 
+<p>即为打开并查看nginx.conf这个文件。</p>
+<p>当然<code>cat</code>也支持查看多个文件</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> file1 file2 file3</span><br></pre></td></tr></table></figure></div>
 
+<p>比较常用的<code>cat</code>选项有<code>-n</code>、<code>-b</code>、<code>-E</code>等</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> -n file <span class="comment">#显示行号</span></span><br><span class="line"><span class="built_in">cat</span> -b file <span class="comment">#显示行号，但只对非空行进行编号，不计空行</span></span><br><span class="line"><span class="built_in">cat</span> -E file <span class="comment">#在每行的末尾标记$符号</span></span><br></pre></td></tr></table></figure></div>
 
+<p>另外在创建文件中也可以使用<code>cat</code>，并同时输入多行内容，写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt;&gt; new_file.txt &lt;&lt; <span class="string">EOF #EOF</span>即为结束行的标记</span><br><span class="line">&gt; this is a new file</span><br><span class="line">&gt; line1 </span><br><span class="line">&gt; line2 </span><br><span class="line">&gt; line3 </span><br><span class="line">&gt; line4</span><br><span class="line">&gt; EOF <span class="comment">#输入完毕后添加EOF标记，即可保存退出</span></span><br></pre></td></tr></table></figure></div>
 
+<h3 id="7-2-tail命令"><a href="#7-2-tail命令" class="headerlink" title="7.2 tail命令"></a>7.2 tail命令</h3><p><code>tail</code>命令通常用于查看日志文件和监控文件的实时变化，语法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> [选项] [目标文件]</span><br></pre></td></tr></table></figure></div>
 
+<p>搭配一些常用的选项，可以这样写</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -f file.txt <span class="comment">#实时显示文本内容及变化，比如日志文件的实时变化</span></span><br><span class="line"><span class="built_in">tail</span> -n 20 file.txt <span class="comment">#显示file.txt文件最后的20行内容</span></span><br><span class="line"><span class="built_in">tail</span> -c 100 file.txt <span class="comment">#显示file.txt文件最后的100个字节的内容</span></span><br></pre></td></tr></table></figure></div>
 
+<h3 id="7-3-wc命令"><a href="#7-3-wc命令" class="headerlink" title="7.3 wc命令"></a>7.3 wc命令</h3><p><code>wc</code>命令能用来统计查看文本行数、字数、字符数的统计命令，常见用法有</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">wc</span> -l file.txt <span class="comment">#显示文件文本的行数</span></span><br><span class="line"><span class="built_in">wc</span> -w file.txt <span class="comment">#显示文件文本的字数</span></span><br><span class="line"><span class="built_in">wc</span> -c file.txt <span class="comment">#显示文件文本的字符数</span></span><br></pre></td></tr></table></figure></div>
 
+<p>当然<code>wc</code>命令还支持同时显示多个文件的文本信息</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">wc</span> -l /var/log/nginx/* <span class="comment">#显示nginx目录下所有文件文本的行数</span></span><br></pre></td></tr></table></figure></div>
 
+<h3 id="7-4-du命令"><a href="#7-4-du命令" class="headerlink" title="7.4 du命令"></a>7.4 du命令</h3><p><code>du</code>命令能用来查看文本或目录所占磁盘的空间，常见用法有</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">du</span> -s file1 file2 file3 <span class="comment">#查看多个文件的大小，一般-s是默认选项</span></span><br><span class="line"><span class="built_in">du</span> -h <span class="built_in">dir</span>/file <span class="comment">#以易读方式查看dir目录下的file文件的大小</span></span><br><span class="line"><span class="built_in">du</span> -c <span class="built_in">dir</span>/* <span class="comment">#显示dir目录下所有文件和子目录的大小，并计算出总和</span></span><br></pre></td></tr></table></figure></div>
 
+<p>当然同其他Linux命令一样，<code>du</code>命令的选项也可以组合使用，如<code>-ch</code>、<code>-sh</code>等。</p>
+<h3 id="7-5-find命令"><a href="#7-5-find命令" class="headerlink" title="7.5 find命令"></a>7.5 find命令</h3><p><code>find</code>命令能用于文件或目录的查找，语法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find [搜索范围目录] [选项] [对象]</span><br></pre></td></tr></table></figure></div>
 
+<p>常用的选项有<code>-type</code>、<code>-name</code>、<code>-size</code>等，当然也可以组合使用，比如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /var -<span class="built_in">type</span> f -name nginx.log <span class="comment">#f代表的是文本文件类型，d则为目录类型</span></span><br></pre></td></tr></table></figure></div>
 
+<p>这表示在&#x2F;var目录下查找名称为nginx.log的文本类型文件。</p>
+<p>当然<code>find</code>命令也可以进行模糊搜素，通过和*通配符搭配的形式，比如说</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /var -<span class="built_in">type</span> f -name *.<span class="built_in">log</span></span><br></pre></td></tr></table></figure></div>
 
+<p>这表示在&#x2F;var目录下查找所有以.log结尾的文本类型文件。</p>
 
         </div>
 
@@ -570,7 +675,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">Linux命令总结之文件操作</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Linux%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-text">1. Linux的目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%9B%AE%E5%BD%95%E5%88%87%E6%8D%A2"><span class="nav-text">2. 目录切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%9B%AE%E5%BD%95%E5%88%97%E5%87%BA%E6%98%BE%E7%A4%BA"><span class="nav-text">3. 目录列出显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%9B%AE%E5%BD%95%E4%B8%8E%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%88%A0%E9%99%A4"><span class="nav-text">4. 目录与文件的创建和删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E7%9B%AE%E5%BD%95%E5%92%8C%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">4.1 目录和文件的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E7%9B%AE%E5%BD%95%E5%92%8C%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%A0%E9%99%A4"><span class="nav-text">4.2 目录和文件的删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E7%9B%AE%E5%BD%95%E4%B8%8E%E6%96%87%E4%BB%B6%E7%9A%84%E5%A4%8D%E5%88%B6%E5%92%8C%E7%A7%BB%E5%8A%A8"><span class="nav-text">5. 目录与文件的复制和移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%93%E5%8C%85%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9"><span class="nav-text">6. 文件的打包和解压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-tar%E5%91%BD%E4%BB%A4%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9"><span class="nav-text">6.1 tar命令的压缩和解压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-zip%E5%91%BD%E4%BB%A4%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9"><span class="nav-text">6.2 zip命令的压缩和解压缩</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Linux%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-text">1. Linux的目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E7%9B%AE%E5%BD%95%E5%8A%9F%E8%83%BD"><span class="nav-text">1.1 目录功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%9B%AE%E5%BD%95%E5%88%87%E6%8D%A2"><span class="nav-text">2. 目录切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%9B%AE%E5%BD%95%E5%88%97%E5%87%BA%E6%98%BE%E7%A4%BA"><span class="nav-text">3. 目录列出显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%9B%AE%E5%BD%95%E4%B8%8E%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%88%A0%E9%99%A4"><span class="nav-text">4. 目录与文件的创建和删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E7%9B%AE%E5%BD%95%E5%92%8C%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">4.1 目录和文件的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E7%9B%AE%E5%BD%95%E5%92%8C%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%A0%E9%99%A4"><span class="nav-text">4.2 目录和文件的删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E7%9B%AE%E5%BD%95%E4%B8%8E%E6%96%87%E4%BB%B6%E7%9A%84%E5%A4%8D%E5%88%B6%E5%92%8C%E7%A7%BB%E5%8A%A8"><span class="nav-text">5. 目录与文件的复制和移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%93%E5%8C%85%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9"><span class="nav-text">6. 文件的打包和解压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-tar%E5%91%BD%E4%BB%A4%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9"><span class="nav-text">6.1 tar命令的压缩和解压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-zip%E5%91%BD%E4%BB%A4%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9"><span class="nav-text">6.2 zip命令的压缩和解压缩</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%85%B6%E4%BB%96"><span class="nav-text">7. 其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-cat%E5%91%BD%E4%BB%A4"><span class="nav-text">7.1 cat命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-tail%E5%91%BD%E4%BB%A4"><span class="nav-text">7.2 tail命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-wc%E5%91%BD%E4%BB%A4"><span class="nav-text">7.3 wc命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-du%E5%91%BD%E4%BB%A4"><span class="nav-text">7.4 du命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-find%E5%91%BD%E4%BB%A4"><span class="nav-text">7.5 find命令</span></a></li></ol></li></ol>
 
     </div>
 </div>
@@ -602,9 +707,9 @@
         </div>
         
         <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
-            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
-            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.5.0</a></span>
-        </div>
+                    <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+                    <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.5.0</a></span>
+                </div>
         
         
         
