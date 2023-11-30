@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="PoKi">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://zzpoki.github.io/2023/11/30/linux-users-manage/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="总结一下Linux系统下用户和权限的概念，以及相关命令的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux命令总结之用户权限管理">
+<meta property="og:url" content="https://zzpoki.github.io/2023/11/30/linux-users-manage/">
+<meta property="og:site_name" content="PoKi&#39;s Blog">
+<meta property="og:description" content="总结一下Linux系统下用户和权限的概念，以及相关命令的使用。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-30T08:36:45.000Z">
+<meta property="article:modified_time" content="2023-11-30T16:00:49.479Z">
+<meta property="article:author" content="PoKi">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="用户权限">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#6D87C8">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Linux命令总结之用户权限管理 -
+        
+        PoKi&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/assets/build/styles.css">
+    
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fonts/fonts.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fonts/Satoshi/satoshi.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fonts/Chillax/chillax.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    window.config = {"hostname":"zzpoki.github.io","root":"/","language":"en","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":false},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":false,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#6D87C8","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":false},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":false,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/bg-light.png","dark":"/images/bg-dark.png"},"title":"PoKi's Blog","subtitle":{"text":["welcome to my site"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#08515F","dark":"#B4ECF6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.5.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"tags":{"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"}},"categories":{"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"}},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Pictures":{"path":"/masonry/","icon":"fa-regular fa-image"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"right","first_item":"menu","announcement":null,"links":{"Github":{"path":"https://github.com/ZzPoKi","icon":"fa-brands fa-github"},"Osu!":{"path":"https://osu.ppy.sh/users/31218446","icon":"fa-regular fa-face-smile-wink"}}},"article_date_format":"YYYY-MM-DD","categories":{"enable":true,"limit":5},"tags":{"enable":true,"limit":5}},"footerStart":"2023/11/01 00:00:00"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":true};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="swup-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                PoKi&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        ARCHIVES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/masonry/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-image"></i>
+                                        
+                                        PICTURES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer w-full absolute top-0 left-0 bg-background-color">
+        <ul class="drawer-navbar-list flex flex-col justify-start items-center">
+            
+                
+                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                ARCHIVES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
+                        href="/masonry/"  >
+                             
+                                
+                                    <i class="fa-regular fa-image"></i>
+                                
+                                PICTURES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            
+                <h1 class="article-title-regular">Linux命令总结之用户权限管理</h1>
+            
+            </div>
+            
+                    
+        
+        
+            <div class="article-header flex flex-row gap-2 items-center">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/redefine-avatar.svg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">PoKi</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-11-30 16:36:45</span>
+        <span class="mobile">2023-11-30 16:36:45</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-12-01 00:49</span>
+            <span class="mobile">2023-12-01 00:49</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Linux/">Linux</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/">用户权限</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body">
+            <p>总结一下Linux系统下用户和权限的概念，以及相关命令的使用。</p>
+<span id="more"></span>
+
+<h2 id="1-用户和权限的概念"><a href="#1-用户和权限的概念" class="headerlink" title="1. 用户和权限的概念"></a>1. 用户和权限的概念</h2><p>Linux是一个多用户的系统，这点与Windows不同，它允许多个使用者以不同类型和不同权限的用户身份同时登录主机，共同分配主机的资源，由此便引出了用户和用户组以及相关权限的概念。</p>
+<h3 id="1-1-用户和用户组"><a href="#1-1-用户和用户组" class="headerlink" title="1.1 用户和用户组"></a>1.1 用户和用户组</h3><p>由于Linux是多用户系统，不同用户对应不同文件的权限管理是必然要考虑的问题。就比如在同一个系统中，A用户的文件只能由A用户修改查看，而其他人想要修改A用户的个人文件则会被禁止，这也就保证了每个用户都能有单独的权限空间，也就避免了文件管理越界所导致的权限混乱。由此从文件权限角度出发，就引出了三个权限对象：<strong>用户</strong>、<strong>用户组</strong>、<strong>其他人</strong>。</p>
+<ul>
+<li><strong>用户</strong></li>
+</ul>
+<p>用户也就是文件的创建者和所有者，对文件拥有最高权限，只有用户才可以将文件的权限进行开放出来，允许其他人对文件进行查看、修改、执行操作。而如果用户想要将文件仅对部分人权限开放，此时仅仅区分用户和其他人显然不能满足需求，这也就出现了用户组这一概念。</p>
+<ul>
+<li><strong>用户组</strong></li>
+</ul>
+<p>如果用户想要将文件权限仅仅对部分人开放而对其他人关闭，这时候只要将这部分人划入用户即文件所有者所在的同一用户组，用户在组内开放权限即可。同样用户能对组内成员进行权限管理，允许组内成员对文件进行查看、执行、修改不同权限的操作，这样既能保证组内的资源共享，又能对外保证用户组的资源私有。</p>
+<p>需要知道用户组分为主组和附加组，当一个用户被创建出来时，系统会默认创建出来一个和用户名相同（可以修改）的主组，也称为初始组。每个用户有且只能归属于一个主组。除了主组以外，用户还能加入多个附加组，享受多个用户组的权限，需要注意用户在附加组内能够被直接移除，附加组并不会受到影响。</p>
+<ul>
+<li><strong>其他人</strong></li>
+</ul>
+<p>其他人也就是除了用户和用户组成员以外的外部成员，通常得到的权限最低。</p>
+<h3 id="1-2-root用户"><a href="#1-2-root用户" class="headerlink" title="1.2 root用户"></a>1.2 root用户</h3><p>root用户在Linux系统中属于是拥有最高权限的超级用户，拥有对系统内几乎所有资源的权限，可以执行几乎任何操作。只有系统管理员(admin)和sudoers才能执行<code>sudo</code>命令来得到root权限进行操作，而sudoers的信息存放在&#x2F;etc&#x2F;sudoers 文件中。打开文件可以看到</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># User privilege specification</span><br><span class="line">root	ALL=(ALL:ALL) ALL</span><br><span class="line"></span><br><span class="line"># Members of the admin group may gain root privileges</span><br><span class="line">%admin ALL=(ALL) ALL</span><br><span class="line"></span><br><span class="line"># Allow members of group sudo to execute any command</span><br><span class="line">%sudo	ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure></div>
+
+<p>这说明root用户拥有所有的权限，而admin组和sudo组的成员可以执行<code>sudo</code>命令来获取root权限。</p>
+<p>其中的<code>ALL=(ALL:ALL) ALL</code>分别对应</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">主机名=(用户身份:用户身份所在用户组) 可执行命令</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="1-3-用户和用户组的相关配置文件"><a href="#1-3-用户和用户组的相关配置文件" class="headerlink" title="1.3 用户和用户组的相关配置文件"></a>1.3 用户和用户组的相关配置文件</h3><p>用户信息文件：&#x2F;etc&#x2F;passwd</p>
+<p>用户组信息文件：&#x2F;etc&#x2F;group</p>
+<p>用户密码信息：&#x2F;etc&#x2F;shadow</p>
+<p>用户组密码信息：&#x2F;etc&#x2F;gshadow</p>
+<p>需要知道用户和用户组的管理都需要在root权限下进行。</p>
+<h2 id="2-用户组管理"><a href="#2-用户组管理" class="headerlink" title="2. 用户组管理"></a>2. 用户组管理</h2><p>Linux将用户组相关的信息存放在&#x2F;etc&#x2F;group中，每一行的储存格式为</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">examplegroup:x:1100:user1,user2 #附加组</span><br><span class="line">用户组名称:用户组密码:用户组GID:用户组所包含的用户</span><br><span class="line">newuser:x:1001: #newuser归属的主组</span><br><span class="line">用户组名称:用户组密码:用户组GID</span><br></pre></td></tr></table></figure></div>
+
+<p>要想添加用户组，需要使用<code>groupadd</code>命令，写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd [选项] [用户组名称]</span><br></pre></td></tr></table></figure></div>
+
+<p>比如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd -g 2000 newgroup <span class="comment">#创建一个名为newgroup的用户组，并指定组ID即GID为2000</span></span><br><span class="line">groupadd -r newgroup <span class="comment">#创建一个系统内（GID小于1000）的用户组</span></span><br></pre></td></tr></table></figure></div>
+
+<p>而要想修改用户组的名称或者GID等属性，需要用到<code>groupmod</code>命令，写法同样为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupmod [选项] [用户组名称]</span><br></pre></td></tr></table></figure></div>
+
+<p>比如要修改newgroup组的GID和名称，可以这样写</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd -n mygroup -g 1500 newgroup <span class="comment">#将用户组名称修改为mygroup，GID修改为1500</span></span><br></pre></td></tr></table></figure></div>
+
+<p>如果要删除用户组，则需要使用<code>groupdel</code>命令，比如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupdel mygroup <span class="comment">#删除mygroup用户组</span></span><br></pre></td></tr></table></figure></div>
+
+<p>要想查看某个用户所属的用户组，应该使用<code>groups</code>命令，例如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">groups</span> linuxuser</span><br></pre></td></tr></table></figure></div>
+
+<p>能得到返回结果</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linuxuser : linuxuser admin sudo mygroup ... <span class="comment">#冒号后面即为用户所属的所有用户组</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-用户管理"><a href="#3-用户管理" class="headerlink" title="3. 用户管理"></a>3. 用户管理</h2><p>如果要给系统添加用户，需要使用<code>useradd</code>命令，写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd [选项] [用户名]</span><br></pre></td></tr></table></figure></div>
+
+<p>一些常用的选项有</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-g <span class="comment">#为新增用户指定主组，默认情况下在用户被创建出来时会被自动归属到和用户同名的用户组中</span></span><br><span class="line">-G <span class="comment">#为新增用户指定加入的附加组</span></span><br><span class="line">-u <span class="comment">#为新增用户指定uid即用户id，默认从1000开始往下排序</span></span><br><span class="line">-m <span class="comment">#为新增用户创建一个在/home下的家目录</span></span><br><span class="line">-s <span class="comment">#指定新增用户的shell解释器</span></span><br></pre></td></tr></table></figure></div>
+
+<p>比如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建一个名为devuser的用户，为其添加家目录，并将其归属到devgroup组中</span></span><br><span class="line">useradd -G devgroup -m devuser </span><br><span class="line"><span class="comment">#此时得到用户信息可以为</span></span><br><span class="line">uid=1002(devuser) gid=1002(devuser) <span class="built_in">groups</span>=1002(devuser),1500(devgroup)</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建一个名为devuser的用户，为其添加家目录，并将其主组指定为devgroup</span></span><br><span class="line">useradd -g devgroup -m devuser</span><br><span class="line"><span class="comment">#此时得到用户信息应为</span></span><br><span class="line">uid=1003(devuser) gid=1003(devuser) <span class="built_in">groups</span>=1003(devuser)</span><br></pre></td></tr></table></figure></div>
+
+<p>而要给用户设置密码，一般是单独使用<code>passwd</code>命令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd user</span><br></pre></td></tr></table></figure></div>
+
+<p>然后根据提示输入两次新用户的密码进行确认。</p>
+<p>要想修改用户属性，应该使用<code>usermod</code>命令，写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod [选项] [用户对象]</span><br></pre></td></tr></table></figure></div>
+
+<p>常见用法有</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">usermod -l new_username old_username <span class="comment">#修改用户名</span></span><br><span class="line">usermod -u new_uid username <span class="comment">#修改用户uid</span></span><br><span class="line">usermod -g new_primary_group username <span class="comment">#为用户修改主组</span></span><br><span class="line">usermod -G new_primary_group username <span class="comment">#为用户指定附加组，注意这会覆盖先前指定的附加组</span></span><br><span class="line">usermod -G group1,group2,group3 username <span class="comment">#为用户指定多个组，用逗号隔开</span></span><br><span class="line">usermod -aG additional_group username <span class="comment">#将用户添加到一个新的附加组，-a表示追加</span></span><br></pre></td></tr></table></figure></div>
+
+<p>要将用户从某个用户组中移除，还可以使用<code>gpasswd</code></p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -d username groupname </span><br></pre></td></tr></table></figure></div>
+
+<p>而要想删除用户，只需要执行<code>userdel</code>命令即可</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">userdel del_user <span class="comment">#删除用户del_user</span></span><br><span class="line">userdel -rf del_user <span class="comment">#强制删除用户，并移除其家目录</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Linux/">#Linux</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/">#用户权限</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                        rel="next"
+                        href="/2023/11/21/linux-file-manage/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Linux命令总结之文件操作</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">Linux命令总结之用户权限管理</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">1. 用户和权限的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84"><span class="nav-text">1.1 用户和用户组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-root%E7%94%A8%E6%88%B7"><span class="nav-text">1.2 root用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84%E7%9A%84%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">1.3 用户和用户组的相关配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86"><span class="nav-text">2. 用户组管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="nav-text">3. 用户管理</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2023</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-cog fa-spin"></i>&nbsp;&nbsp;<a href="/">PoKi</a>
+        </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+                    <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+                    <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.5.0</a></span>
+                </div>
+        
+        
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="fa-regular fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/Swup.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupSlideTheme.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupScriptsPlugin.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupProgressPlugin.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupScrollPlugin.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupPreloadPlugin.min.js"></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/imageViewer.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/utils.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/main.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/navbarShrink.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/scrollTopBottom.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/lightDarkSwitch.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/categoryList.js"></script>
+
+
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/localSearch.js"></script>
+
+
+
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/codeBlock.js"></script>
+
+
+
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/lazyload.js"></script>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/Typed.min.js"></script>
+  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/typed.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/mermaid.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/minimasonry.min.js"></script>
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/masonry.js"></script>
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/anime.min.js"></script>
+        <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/tocToggle.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/toc.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/tabs.js"></script>
+    
+</div>
+
+
+</body>
+</html>
