@@ -1,53 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>令Azure VPS的公共ip开放外部访问</title>
-    <url>/2023/11/18/azure-access/</url>
-    <content><![CDATA[<p>对于刚创建的Azure VM（VPS）来说，由于Azure防火墙的存在，默认情况下只有少数几个端口（如SSH服务的22端口）可供外部访问使用。而要想将更多的端口开放出来，则需要额外添加入站的端口规则。</p>
-<span id="more"></span>
-
-<h2 id="1-Azure-VPS在默认情况下无法ping通的原因"><a href="#1-Azure-VPS在默认情况下无法ping通的原因" class="headerlink" title="1. Azure VPS在默认情况下无法ping通的原因"></a>1. Azure VPS在默认情况下无法ping通的原因</h2><p>通常来说，我们在对远程主机进行连通性测试时，都习惯使用ping命令，而最开始我将Azure VPS创建出来之后，首先就是遇到了Azure主机无法ping通的问题。经过了解才知道，Azure存在一道防火墙，使得ICMP协议下的数据包被阻拦，以下是官方文档的说明：</p>
-<blockquote>
-<p>在 Azure 中，ICMP 包无法通过防火墙和负载均衡器，所以不能直接使用 ping 来测试 Azure 中的虚拟机和服务的连通性（VPN 和 Express Route 通道中的流量不经过负载均衡器，所以只要链路上的防火墙允许 ICMP 包传递，ping 依然可用）。</p>
-</blockquote>
-<p>而ping实际上就是向目标主机发送一个ICMP Echo的请求数据包，然后等待目标主机返回响应数据包，重复多次来计算网络时延和丢包率的一个过程。显然由于Azure防火墙的存在，ping命令下的ICMP请求数据包被防火墙拒绝，也就解释了默认状态下为什么对Azure主机ping只会返回请求超时。</p>
-<h2 id="2-自定义入站端口规则"><a href="#2-自定义入站端口规则" class="headerlink" title="2. 自定义入站端口规则"></a>2. 自定义入站端口规则</h2><p>知道Azure防护墙对外部访问的限制后，我们需要做的就是去修改其网络安全组规则。首先打开Azure VM的控制台，进入到主机资源组中的NSG配置，可以看到最后有一条”DenyAllInBound”的默认规则，它将所有的外部访问都给拒绝了，而我们需要对入站端口规则进行添加设置，把端口从防火墙中开放出来。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/azure-access/denyall.png"
-                     
-                ></p>
-<h3 id="2-1-设定拒绝外网访问的特定端口"><a href="#2-1-设定拒绝外网访问的特定端口" class="headerlink" title="2.1 设定拒绝外网访问的特定端口"></a>2.1 设定拒绝外网访问的特定端口</h3><p>在入站安全规则的设置界面中点击添加，源保持默认设定”Any”，源端口范围保持默认设定”*”即任意端口，修改目标为”Service Tag”，将目标服务标记为”Internet”，这表示限定与互联网之间的通信规则。然后修改目标端口范围，这里可以以逗号分隔的形式来定义多个目标端口，也可以设定范围。在操作上选择 “拒绝”，规则名称自定，保存修改。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/azure-access/deny.png"
-                     
-                ></p>
-<p>通过上述规则自定义，可以使外网访问走不了这几个特定的端口，保证了一定的安全。</p>
-<h3 id="2-2-设定开放外部访问的端口"><a href="#2-2-设定开放外部访问的端口" class="headerlink" title="2.2 设定开放外部访问的端口"></a>2.2 设定开放外部访问的端口</h3><p>在下一优先级中，添加一条新的开放外部访问端口的规则。将源和目标均保持默认设定”Any”，将目标端口范围设定为”*”即任意范围，当然也可以自定义范围，操作上选择 “允许”，规则名称自定，保存修改。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/azure-access/allow.png"
-                     
-                ></p>
-<p>这样就可以将其余端口开放出来，供外部访问使用。</p>
-<h2 id="3-重新进行ping测试"><a href="#3-重新进行ping测试" class="headerlink" title="3. 重新进行ping测试"></a>3. 重新进行ping测试</h2><p>最后在本地对Azure主机ip再次进行ping测试，可以看到成功连通。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/images/azure-access/ping.png"
-                     
-                ></p>
-]]></content>
-      <tags>
-        <tag>Azure</tag>
-        <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello Hexo</title>
     <url>/2023/11/06/hello-hexo/</url>
     <content><![CDATA[<p>hexo博客算是初步部署好了，以后就在这里写写东西吧。</p>
@@ -72,6 +25,157 @@
 
 <p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Linux命令总结之用户权限管理</title>
+    <url>/2023/11/30/linux-users-manage/</url>
+    <content><![CDATA[<p>总结一下Linux系统下用户和权限的概念，以及相关命令的使用。</p>
+<span id="more"></span>
+
+<h2 id="1-用户和权限的概念"><a href="#1-用户和权限的概念" class="headerlink" title="1. 用户和权限的概念"></a>1. 用户和权限的概念</h2><p>Linux是一个多用户的系统，这点与Windows不同，它允许多个使用者以不同类型和不同权限的用户身份同时登录主机，共同分配主机的资源，由此便引出了用户和用户组以及相关权限的概念。</p>
+<h3 id="1-1-用户和用户组"><a href="#1-1-用户和用户组" class="headerlink" title="1.1 用户和用户组"></a>1.1 用户和用户组</h3><p>由于Linux是多用户系统，不同用户对应不同文件的权限管理是必然要考虑的问题。就比如在同一个系统中，A用户的文件只能由A用户修改查看，而其他人想要修改A用户的个人文件则会被禁止，这也就保证了每个用户都能有单独的权限空间，也就避免了文件管理越界所导致的权限混乱。由此从文件权限角度出发，就引出了三个权限对象：<strong>用户</strong>、<strong>用户组</strong>、<strong>其他人</strong>。</p>
+<ul>
+<li><strong>用户</strong></li>
+</ul>
+<p>用户也就是文件的创建者和所有者，对文件拥有最高权限，只有用户才可以将文件的权限进行开放出来，允许其他人对文件进行查看、修改、执行操作。而如果用户想要将文件仅对部分人权限开放，此时仅仅区分用户和其他人显然不能满足需求，这也就出现了用户组这一概念。</p>
+<ul>
+<li><strong>用户组</strong></li>
+</ul>
+<p>如果用户想要将文件权限仅仅对部分人开放而对其他人关闭，这时候只要将这部分人划入用户即文件所有者所在的同一用户组，用户在组内开放权限即可。同样用户能对组内成员进行权限管理，允许组内成员对文件进行查看、执行、修改不同权限的操作，这样既能保证组内的资源共享，又能对外保证用户组的资源私有。</p>
+<p>需要知道用户组分为主组和附加组，当一个用户被创建出来时，系统会默认创建出来一个和用户名相同（可以修改）的主组，也称为初始组。每个用户有且只能归属于一个主组。除了主组以外，用户还能加入多个附加组，享受多个用户组的权限，需要注意用户在附加组内能够被直接移除，附加组并不会受到影响。</p>
+<ul>
+<li><strong>其他人</strong></li>
+</ul>
+<p>其他人也就是除了用户和用户组成员以外的外部成员，通常得到的权限最低。</p>
+<h3 id="1-2-root用户"><a href="#1-2-root用户" class="headerlink" title="1.2 root用户"></a>1.2 root用户</h3><p>root用户在Linux系统中属于是拥有最高权限的超级用户，拥有对系统内几乎所有资源的权限，可以执行几乎任何操作。默认情况下只有admin组和sudo组成员才能执行<code>sudo</code>命令来得到root权限进行操作，而sudoers的信息存放在&#x2F;etc&#x2F;sudoers 文件中。打开文件可以看到</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># User privilege specification</span><br><span class="line">root	ALL=(ALL:ALL) ALL</span><br><span class="line"></span><br><span class="line"># Members of the admin group may gain root privileges</span><br><span class="line">%admin ALL=(ALL) ALL</span><br><span class="line"></span><br><span class="line"># Allow members of group sudo to execute any command</span><br><span class="line">%sudo	ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure></div>
+
+<p>这说明root用户拥有所有的权限，而admin组和sudo组的成员可以执行<code>sudo</code>命令来获取root权限。</p>
+<p>其中的<code>ALL=(ALL:ALL) ALL</code>分别对应</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">主机名=(用户身份:用户身份所在用户组) 可执行命令</span><br></pre></td></tr></table></figure></div>
+
+<p>要想让某个用户获得sudo权限，可以让用户加入admin组或sudo组，也可以在root下手动添加用户的sudo信息，比如</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># User privilege specification</span><br><span class="line">root	ALL=(ALL:ALL) ALL</span><br><span class="line">sudouser ALL=(ALL) ALL</span><br></pre></td></tr></table></figure></div>
+
+<p>此时新添加进sudo规则中的sudouser用户就拥有了sudo执行权限。</p>
+<h3 id="1-3-用户和用户组的相关配置文件"><a href="#1-3-用户和用户组的相关配置文件" class="headerlink" title="1.3 用户和用户组的相关配置文件"></a>1.3 用户和用户组的相关配置文件</h3><p>用户信息文件：&#x2F;etc&#x2F;passwd</p>
+<p>用户组信息文件：&#x2F;etc&#x2F;group</p>
+<p>用户密码信息：&#x2F;etc&#x2F;shadow</p>
+<p>用户组密码信息：&#x2F;etc&#x2F;gshadow</p>
+<p>需要知道用户和用户组的管理都需要在root权限下进行。</p>
+<h2 id="2-用户组管理"><a href="#2-用户组管理" class="headerlink" title="2. 用户组管理"></a>2. 用户组管理</h2><p>Linux将用户组相关的信息存放在&#x2F;etc&#x2F;group中，每一行的储存格式为</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">examplegroup:x:1100:user1,user2 #附加组</span><br><span class="line">#用户组名称:用户组密码占位符:用户组GID:用户组所包含的用户</span><br><span class="line"></span><br><span class="line">newuser:x:1001: #newuser归属的主组</span><br><span class="line">#用户组名称:用户组密码占位符:用户组GID</span><br></pre></td></tr></table></figure></div>
+
+<p>要想添加用户组，需要使用<code>groupadd</code>命令，写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">groupadd [选项] [用户组名称]</span><br></pre></td></tr></table></figure></div>
+
+<p>比如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">groupadd -g 2000 newgroup <span class="comment">#创建一个名为newgroup的用户组，并指定组ID即GID为2000</span></span><br><span class="line">groupadd -r newgroup <span class="comment">#创建一个系统内（GID小于1000）的用户组</span></span><br></pre></td></tr></table></figure></div>
+
+<p>而要想修改用户组的名称或者GID等属性，需要用到<code>groupmod</code>命令，写法同样为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">groupmod [选项] [用户组名称]</span><br></pre></td></tr></table></figure></div>
+
+<p>比如要修改newgroup组的GID和名称，可以这样写</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">groupadd -n mygroup -g 1500 newgroup <span class="comment">#将用户组名称修改为mygroup，GID修改为1500</span></span><br></pre></td></tr></table></figure></div>
+
+<p>如果要删除用户组，则需要使用<code>groupdel</code>命令，比如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">groupdel mygroup <span class="comment">#删除mygroup用户组</span></span><br></pre></td></tr></table></figure></div>
+
+<p>要想查看某个用户所属的用户组，应该使用<code>groups</code>命令，例如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">groups</span> linuxuser</span><br></pre></td></tr></table></figure></div>
+
+<p>能得到返回结果</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">linuxuser : linuxuser admin sudo mygroup ... <span class="comment">#冒号后面即为用户所属的所有用户组</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-用户管理"><a href="#3-用户管理" class="headerlink" title="3. 用户管理"></a>3. 用户管理</h2><p>Linux将用户信息相关信息存放在&#x2F;etc&#x2F;passwd文件中，每一行的存储格式为</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">serveruser:x:1000:1000:Ubuntu:/home/serveruser:/bin/bash</span><br><span class="line">#用户名:用户密码占位符:用户uid:用户主组GID:用户家目录:用户所使用的解释器</span><br></pre></td></tr></table></figure></div>
+
+<p>如果要给系统添加用户，需要使用<code>useradd</code>命令，写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">useradd [选项] [用户名]</span><br></pre></td></tr></table></figure></div>
+
+<p>一些常用的选项有</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">-g <span class="comment">#为新增用户指定主组，默认情况下在用户被创建出来时会被自动归属到和用户同名的用户组中</span></span><br><span class="line">-G <span class="comment">#为新增用户指定加入的附加组</span></span><br><span class="line">-u <span class="comment">#为新增用户指定uid即用户id，默认从1000开始往下排序</span></span><br><span class="line">-m <span class="comment">#为新增用户创建一个在/home下的家目录</span></span><br><span class="line">-s <span class="comment">#指定新增用户的shell解释器</span></span><br></pre></td></tr></table></figure></div>
+
+<p>比如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#创建一个名为devuser的用户，为其添加家目录，并将其归属到devgroup组中</span></span><br><span class="line">useradd -G devgroup -m devuser </span><br><span class="line"><span class="comment">#此时得到用户信息可以为</span></span><br><span class="line">uid=1002(devuser) gid=1002(devuser) <span class="built_in">groups</span>=1002(devuser),1500(devgroup)</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建一个名为devuser的用户，为其添加家目录，并将其主组指定为devgroup</span></span><br><span class="line">useradd -g devgroup -m devuser</span><br><span class="line"><span class="comment">#此时得到用户信息应为</span></span><br><span class="line">uid=1003(devuser) gid=1003(devuser) <span class="built_in">groups</span>=1003(devuser)</span><br></pre></td></tr></table></figure></div>
+
+<p>而要给用户设置密码，一般是单独使用<code>passwd</code>命令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">passwd user</span><br></pre></td></tr></table></figure></div>
+
+<p>然后根据提示输入两次新用户的密码进行确认。</p>
+<p>要想修改用户属性，应该使用<code>usermod</code>命令，写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">usermod [选项] [用户对象]</span><br></pre></td></tr></table></figure></div>
+
+<p>常见用法有</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">usermod -l new_username old_username <span class="comment">#修改用户名</span></span><br><span class="line">usermod -u new_uid username <span class="comment">#修改用户uid</span></span><br><span class="line">usermod -g new_primary_group username <span class="comment">#为用户修改主组</span></span><br><span class="line">usermod -G new_primary_group username <span class="comment">#为用户指定附加组，注意这会覆盖先前指定的附加组</span></span><br><span class="line">usermod -G group1,group2,group3 username <span class="comment">#为用户指定多个组，用逗号隔开</span></span><br><span class="line">usermod -aG additional_group username <span class="comment">#将用户添加到一个新的附加组，-a表示追加</span></span><br></pre></td></tr></table></figure></div>
+
+<p>要将用户从某个用户组中移除，还可以使用<code>gpasswd</code></p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">gpasswd -d username groupname </span><br></pre></td></tr></table></figure></div>
+
+<p>而要想删除用户，只需要执行<code>userdel</code>命令即可</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">userdel del_user <span class="comment">#删除用户del_user</span></span><br><span class="line">userdel -rf del_user <span class="comment">#强制删除用户，并移除其家目录</span></span><br></pre></td></tr></table></figure></div>
+
+<p>其他一些用户状态查看命令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">id</span> username <span class="comment">#查看指定用户的详细信息</span></span><br><span class="line"><span class="built_in">whoami</span> <span class="comment">#显示当前登录用户</span></span><br><span class="line"><span class="built_in">who</span> <span class="comment">#显示已登录用户终端信息</span></span><br><span class="line">w <span class="comment">#显示已登录用户的进程负载信息</span></span><br><span class="line">last <span class="comment">#显示近期登录的终端记录</span></span><br><span class="line">lastlog <span class="comment">#显示用户的登录记录</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="4-权限管理"><a href="#4-权限管理" class="headerlink" title="4. 权限管理"></a>4. 权限管理</h2><h3 id="4-1-理解文件的权限"><a href="#4-1-理解文件的权限" class="headerlink" title="4.1 理解文件的权限"></a>4.1 理解文件的权限</h3><p>在Linux中，文件的操作权限被分为读取（read）、写入（write）、执行（execute），即对应r、w、x，而在操作者上又分为用户（user）、用户组（group）、其他人（others），即对应u、g、o。我们可以通过<code>ls -lh</code>命令来查看文件或目录的详细属性和权限信息，例如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">ls</span> -lh nginx</span><br><span class="line"><span class="comment">#得到返回</span></span><br><span class="line">-rwxr-xr-x 1 root root 1.2M May 31  2023 nginx</span><br></pre></td></tr></table></figure></div>
+
+<p>在上述返回信息中，<code>-rwxr-xr-x</code>代表文件的权限，第一个<code>-</code>代表文件类型，此处为普通文件。接着<code>rwx</code>代表用户权限，表示用户对文件有读取、写入、执行的操作权限，之后<code>r-x</code>代表用户组权限，最后<code>r-x</code>代表其他人权限。</p>
+<p>接下来是文件的所属信息，第一个<code>root</code>代表文件属于root用户，第二个<code>root</code>代表文件属于root组。</p>
+<p>其他信息如权限信息后的<code>1</code>代表文件硬链接数量，<code>1.2M</code>即为文件的大小等。</p>
+<h3 id="4-2-修改文件和目录的权限"><a href="#4-2-修改文件和目录的权限" class="headerlink" title="4.2 修改文件和目录的权限"></a>4.2 修改文件和目录的权限</h3><p>要想修改文件或目录的权限，应该使用<code>chmod</code>命令，来更改文件的读取、写入、执行权限，以及目录的列出、创建、删除权限，权限的修改分为符号表示法和数字表示法。</p>
+<p>在符号表示法中，以<code>u</code>、<code>g</code>、<code>o</code>、<code>a</code>来分别代表用户、用户组、其他人、所有用户四种不同用户类型，并使用<code>+</code>、<code>-</code>、<code>=</code>符号来增加或移除权限，比如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u=rwx file.txt <span class="comment">#令用户拥有对file.txt文件的读取、写入、执行权限</span></span><br><span class="line"><span class="built_in">chmod</span> g=r-x file.txt <span class="comment">#令用户组成员对file.txt文件拥有读取和执行的权限</span></span><br><span class="line"><span class="built_in">chmod</span> a+r file。txt <span class="comment">#令所有人对文件file.txt都获得对文件的读取权限</span></span><br><span class="line"><span class="built_in">chmod</span> o-x file.txt <span class="comment">#令其他人对文件file.txt失去执行的权限</span></span><br></pre></td></tr></table></figure></div>
+
+<p>而在数字表示法中，数字和权限的对应关系为</p>
+<table>
+<thead>
+<tr>
+<th>权限</th>
+<th>数字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>r</td>
+<td>4</td>
+</tr>
+<tr>
+<td>w</td>
+<td>2</td>
+</tr>
+<tr>
+<td>x</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>将数字相加，即可得到相应的权限组合，比如7&#x3D;4+2+1，代表具有读取、写入、执行的权限，5&#x3D;4+1，代表具有读取、执行权限，因此写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 750 file.txt <span class="comment">#数字7、5、0分别对应用户、用户组、其他人所拥有的权限</span></span><br><span class="line"><span class="built_in">chmod</span> 777 file.txt <span class="comment">#表示对所有人都开放最大权限</span></span><br></pre></td></tr></table></figure></div>
+
+<p>而要想递归修改目录的权限，则应该添加<code>-R</code>选项，这能够为指定目录及其所有子目录和文件修改权限配置。</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> -R 755 mydir</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="4-3-修改文件和目录的所属"><a href="#4-3-修改文件和目录的所属" class="headerlink" title="4.3 修改文件和目录的所属"></a>4.3 修改文件和目录的所属</h3><p>要修改文件的所属，应该使用<code>chown</code>命令，写法为</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chown</span> [选项] 修改用户:修改组 文件或目录名</span><br></pre></td></tr></table></figure></div>
+
+<p>比如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chown</span> newuser:newgroup file.txt <span class="comment">#这表示将文件file.txt的所属用户修改为newuser，所属组修改为newgroup</span></span><br></pre></td></tr></table></figure></div>
+
+<p>而要想给某个目录以及其所有内容修改权限，同样需要用到<code>-R</code>递归选项</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chown</span> -R newuser:newgroup mydir </span><br></pre></td></tr></table></figure></div>
+
+<p>另外还可以使用<code>chgrp</code>命令来修改文件目录的所属组</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chgrp</span> newgroup file.txt <span class="comment">#将文件的所属组修改为newgroup</span></span><br></pre></td></tr></table></figure></div>
+
+<p>同样也可以添加<code>-R</code>选项来进行递归修改</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chgrp</span> newgroup mydir </span><br></pre></td></tr></table></figure></div>
+
+<p>需要注意无论是<code>chown</code>还是<code>chgrp</code>命令都需要相关权限才能执行，一般是root用户或文件的所属者才能操作。</p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>用户权限</tag>
+      </tags>
   </entry>
   <entry>
     <title>Linux命令总结之文件操作</title>
@@ -367,157 +471,6 @@
       <tags>
         <tag>Linux</tag>
         <tag>文件操作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux命令总结之用户权限管理</title>
-    <url>/2023/11/30/linux-users-manage/</url>
-    <content><![CDATA[<p>总结一下Linux系统下用户和权限的概念，以及相关命令的使用。</p>
-<span id="more"></span>
-
-<h2 id="1-用户和权限的概念"><a href="#1-用户和权限的概念" class="headerlink" title="1. 用户和权限的概念"></a>1. 用户和权限的概念</h2><p>Linux是一个多用户的系统，这点与Windows不同，它允许多个使用者以不同类型和不同权限的用户身份同时登录主机，共同分配主机的资源，由此便引出了用户和用户组以及相关权限的概念。</p>
-<h3 id="1-1-用户和用户组"><a href="#1-1-用户和用户组" class="headerlink" title="1.1 用户和用户组"></a>1.1 用户和用户组</h3><p>由于Linux是多用户系统，不同用户对应不同文件的权限管理是必然要考虑的问题。就比如在同一个系统中，A用户的文件只能由A用户修改查看，而其他人想要修改A用户的个人文件则会被禁止，这也就保证了每个用户都能有单独的权限空间，也就避免了文件管理越界所导致的权限混乱。由此从文件权限角度出发，就引出了三个权限对象：<strong>用户</strong>、<strong>用户组</strong>、<strong>其他人</strong>。</p>
-<ul>
-<li><strong>用户</strong></li>
-</ul>
-<p>用户也就是文件的创建者和所有者，对文件拥有最高权限，只有用户才可以将文件的权限进行开放出来，允许其他人对文件进行查看、修改、执行操作。而如果用户想要将文件仅对部分人权限开放，此时仅仅区分用户和其他人显然不能满足需求，这也就出现了用户组这一概念。</p>
-<ul>
-<li><strong>用户组</strong></li>
-</ul>
-<p>如果用户想要将文件权限仅仅对部分人开放而对其他人关闭，这时候只要将这部分人划入用户即文件所有者所在的同一用户组，用户在组内开放权限即可。同样用户能对组内成员进行权限管理，允许组内成员对文件进行查看、执行、修改不同权限的操作，这样既能保证组内的资源共享，又能对外保证用户组的资源私有。</p>
-<p>需要知道用户组分为主组和附加组，当一个用户被创建出来时，系统会默认创建出来一个和用户名相同（可以修改）的主组，也称为初始组。每个用户有且只能归属于一个主组。除了主组以外，用户还能加入多个附加组，享受多个用户组的权限，需要注意用户在附加组内能够被直接移除，附加组并不会受到影响。</p>
-<ul>
-<li><strong>其他人</strong></li>
-</ul>
-<p>其他人也就是除了用户和用户组成员以外的外部成员，通常得到的权限最低。</p>
-<h3 id="1-2-root用户"><a href="#1-2-root用户" class="headerlink" title="1.2 root用户"></a>1.2 root用户</h3><p>root用户在Linux系统中属于是拥有最高权限的超级用户，拥有对系统内几乎所有资源的权限，可以执行几乎任何操作。默认情况下只有admin组和sudo组成员才能执行<code>sudo</code>命令来得到root权限进行操作，而sudoers的信息存放在&#x2F;etc&#x2F;sudoers 文件中。打开文件可以看到</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># User privilege specification</span><br><span class="line">root	ALL=(ALL:ALL) ALL</span><br><span class="line"></span><br><span class="line"># Members of the admin group may gain root privileges</span><br><span class="line">%admin ALL=(ALL) ALL</span><br><span class="line"></span><br><span class="line"># Allow members of group sudo to execute any command</span><br><span class="line">%sudo	ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure></div>
-
-<p>这说明root用户拥有所有的权限，而admin组和sudo组的成员可以执行<code>sudo</code>命令来获取root权限。</p>
-<p>其中的<code>ALL=(ALL:ALL) ALL</code>分别对应</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">主机名=(用户身份:用户身份所在用户组) 可执行命令</span><br></pre></td></tr></table></figure></div>
-
-<p>要想让某个用户获得sudo权限，可以让用户加入admin组或sudo组，也可以在root下手动添加用户的sudo信息，比如</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># User privilege specification</span><br><span class="line">root	ALL=(ALL:ALL) ALL</span><br><span class="line">sudouser ALL=(ALL) ALL</span><br></pre></td></tr></table></figure></div>
-
-<p>此时新添加进sudo规则中的sudouser用户就拥有了sudo执行权限。</p>
-<h3 id="1-3-用户和用户组的相关配置文件"><a href="#1-3-用户和用户组的相关配置文件" class="headerlink" title="1.3 用户和用户组的相关配置文件"></a>1.3 用户和用户组的相关配置文件</h3><p>用户信息文件：&#x2F;etc&#x2F;passwd</p>
-<p>用户组信息文件：&#x2F;etc&#x2F;group</p>
-<p>用户密码信息：&#x2F;etc&#x2F;shadow</p>
-<p>用户组密码信息：&#x2F;etc&#x2F;gshadow</p>
-<p>需要知道用户和用户组的管理都需要在root权限下进行。</p>
-<h2 id="2-用户组管理"><a href="#2-用户组管理" class="headerlink" title="2. 用户组管理"></a>2. 用户组管理</h2><p>Linux将用户组相关的信息存放在&#x2F;etc&#x2F;group中，每一行的储存格式为</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">examplegroup:x:1100:user1,user2 #附加组</span><br><span class="line">#用户组名称:用户组密码占位符:用户组GID:用户组所包含的用户</span><br><span class="line"></span><br><span class="line">newuser:x:1001: #newuser归属的主组</span><br><span class="line">#用户组名称:用户组密码占位符:用户组GID</span><br></pre></td></tr></table></figure></div>
-
-<p>要想添加用户组，需要使用<code>groupadd</code>命令，写法为</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">groupadd [选项] [用户组名称]</span><br></pre></td></tr></table></figure></div>
-
-<p>比如</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">groupadd -g 2000 newgroup <span class="comment">#创建一个名为newgroup的用户组，并指定组ID即GID为2000</span></span><br><span class="line">groupadd -r newgroup <span class="comment">#创建一个系统内（GID小于1000）的用户组</span></span><br></pre></td></tr></table></figure></div>
-
-<p>而要想修改用户组的名称或者GID等属性，需要用到<code>groupmod</code>命令，写法同样为</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">groupmod [选项] [用户组名称]</span><br></pre></td></tr></table></figure></div>
-
-<p>比如要修改newgroup组的GID和名称，可以这样写</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">groupadd -n mygroup -g 1500 newgroup <span class="comment">#将用户组名称修改为mygroup，GID修改为1500</span></span><br></pre></td></tr></table></figure></div>
-
-<p>如果要删除用户组，则需要使用<code>groupdel</code>命令，比如</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">groupdel mygroup <span class="comment">#删除mygroup用户组</span></span><br></pre></td></tr></table></figure></div>
-
-<p>要想查看某个用户所属的用户组，应该使用<code>groups</code>命令，例如</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">groups</span> linuxuser</span><br></pre></td></tr></table></figure></div>
-
-<p>能得到返回结果</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">linuxuser : linuxuser admin sudo mygroup ... <span class="comment">#冒号后面即为用户所属的所有用户组</span></span><br></pre></td></tr></table></figure></div>
-
-<h2 id="3-用户管理"><a href="#3-用户管理" class="headerlink" title="3. 用户管理"></a>3. 用户管理</h2><p>Linux将用户信息相关信息存放在&#x2F;etc&#x2F;passwd文件中，每一行的存储格式为</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">serveruser:x:1000:1000:Ubuntu:/home/serveruser:/bin/bash</span><br><span class="line">#用户名:用户密码占位符:用户uid:用户主组GID:用户家目录:用户所使用的解释器</span><br></pre></td></tr></table></figure></div>
-
-<p>如果要给系统添加用户，需要使用<code>useradd</code>命令，写法为</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">useradd [选项] [用户名]</span><br></pre></td></tr></table></figure></div>
-
-<p>一些常用的选项有</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">-g <span class="comment">#为新增用户指定主组，默认情况下在用户被创建出来时会被自动归属到和用户同名的用户组中</span></span><br><span class="line">-G <span class="comment">#为新增用户指定加入的附加组</span></span><br><span class="line">-u <span class="comment">#为新增用户指定uid即用户id，默认从1000开始往下排序</span></span><br><span class="line">-m <span class="comment">#为新增用户创建一个在/home下的家目录</span></span><br><span class="line">-s <span class="comment">#指定新增用户的shell解释器</span></span><br></pre></td></tr></table></figure></div>
-
-<p>比如</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#创建一个名为devuser的用户，为其添加家目录，并将其归属到devgroup组中</span></span><br><span class="line">useradd -G devgroup -m devuser </span><br><span class="line"><span class="comment">#此时得到用户信息可以为</span></span><br><span class="line">uid=1002(devuser) gid=1002(devuser) <span class="built_in">groups</span>=1002(devuser),1500(devgroup)</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建一个名为devuser的用户，为其添加家目录，并将其主组指定为devgroup</span></span><br><span class="line">useradd -g devgroup -m devuser</span><br><span class="line"><span class="comment">#此时得到用户信息应为</span></span><br><span class="line">uid=1003(devuser) gid=1003(devuser) <span class="built_in">groups</span>=1003(devuser)</span><br></pre></td></tr></table></figure></div>
-
-<p>而要给用户设置密码，一般是单独使用<code>passwd</code>命令</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">passwd user</span><br></pre></td></tr></table></figure></div>
-
-<p>然后根据提示输入两次新用户的密码进行确认。</p>
-<p>要想修改用户属性，应该使用<code>usermod</code>命令，写法为</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">usermod [选项] [用户对象]</span><br></pre></td></tr></table></figure></div>
-
-<p>常见用法有</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">usermod -l new_username old_username <span class="comment">#修改用户名</span></span><br><span class="line">usermod -u new_uid username <span class="comment">#修改用户uid</span></span><br><span class="line">usermod -g new_primary_group username <span class="comment">#为用户修改主组</span></span><br><span class="line">usermod -G new_primary_group username <span class="comment">#为用户指定附加组，注意这会覆盖先前指定的附加组</span></span><br><span class="line">usermod -G group1,group2,group3 username <span class="comment">#为用户指定多个组，用逗号隔开</span></span><br><span class="line">usermod -aG additional_group username <span class="comment">#将用户添加到一个新的附加组，-a表示追加</span></span><br></pre></td></tr></table></figure></div>
-
-<p>要将用户从某个用户组中移除，还可以使用<code>gpasswd</code></p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">gpasswd -d username groupname </span><br></pre></td></tr></table></figure></div>
-
-<p>而要想删除用户，只需要执行<code>userdel</code>命令即可</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">userdel del_user <span class="comment">#删除用户del_user</span></span><br><span class="line">userdel -rf del_user <span class="comment">#强制删除用户，并移除其家目录</span></span><br></pre></td></tr></table></figure></div>
-
-<p>其他一些用户状态查看命令</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">id</span> username <span class="comment">#查看指定用户的详细信息</span></span><br><span class="line"><span class="built_in">whoami</span> <span class="comment">#显示当前登录用户</span></span><br><span class="line"><span class="built_in">who</span> <span class="comment">#显示已登录用户终端信息</span></span><br><span class="line">w <span class="comment">#显示已登录用户的进程负载信息</span></span><br><span class="line">last <span class="comment">#显示近期登录的终端记录</span></span><br><span class="line">lastlog <span class="comment">#显示用户的登录记录</span></span><br></pre></td></tr></table></figure></div>
-
-<h2 id="4-权限管理"><a href="#4-权限管理" class="headerlink" title="4. 权限管理"></a>4. 权限管理</h2><h3 id="4-1-理解文件的权限"><a href="#4-1-理解文件的权限" class="headerlink" title="4.1 理解文件的权限"></a>4.1 理解文件的权限</h3><p>在Linux中，文件的操作权限被分为读取（read）、写入（write）、执行（execute），即对应r、w、x，而在操作者上又分为用户（user）、用户组（group）、其他人（others），即对应u、g、o。我们可以通过<code>ls -lh</code>命令来查看文件或目录的详细属性和权限信息，例如</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">ls</span> -lh nginx</span><br><span class="line"><span class="comment">#得到返回</span></span><br><span class="line">-rwxr-xr-x 1 root root 1.2M May 31  2023 nginx</span><br></pre></td></tr></table></figure></div>
-
-<p>在上述返回信息中，<code>-rwxr-xr-x</code>代表文件的权限，第一个<code>-</code>代表文件类型，此处为普通文件。接着<code>rwx</code>代表用户权限，表示用户对文件有读取、写入、执行的操作权限，之后<code>r-x</code>代表用户组权限，最后<code>r-x</code>代表其他人权限。</p>
-<p>接下来是文件的所属信息，第一个<code>root</code>代表文件属于root用户，第二个<code>root</code>代表文件属于root组。</p>
-<p>其他信息如权限信息后的<code>1</code>代表文件硬链接数量，<code>1.2M</code>即为文件的大小等。</p>
-<h3 id="4-2-修改文件和目录的权限"><a href="#4-2-修改文件和目录的权限" class="headerlink" title="4.2 修改文件和目录的权限"></a>4.2 修改文件和目录的权限</h3><p>要想修改文件或目录的权限，应该使用<code>chmod</code>命令，来更改文件的读取、写入、执行权限，以及目录的列出、创建、删除权限，权限的修改分为符号表示法和数字表示法。</p>
-<p>在符号表示法中，以<code>u</code>、<code>g</code>、<code>o</code>、<code>a</code>来分别代表用户、用户组、其他人、所有用户四种不同用户类型，并使用<code>+</code>、<code>-</code>、<code>=</code>符号来增加或移除权限，比如</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u=rwx file.txt <span class="comment">#令用户拥有对file.txt文件的读取、写入、执行权限</span></span><br><span class="line"><span class="built_in">chmod</span> g=r-x file.txt <span class="comment">#令用户组成员对file.txt文件拥有读取和执行的权限</span></span><br><span class="line"><span class="built_in">chmod</span> a+r file。txt <span class="comment">#令所有人对文件file.txt都获得对文件的读取权限</span></span><br><span class="line"><span class="built_in">chmod</span> o-x file.txt <span class="comment">#令其他人对文件file.txt失去执行的权限</span></span><br></pre></td></tr></table></figure></div>
-
-<p>而在数字表示法中，数字和权限的对应关系为</p>
-<table>
-<thead>
-<tr>
-<th>权限</th>
-<th>数字</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>r</td>
-<td>4</td>
-</tr>
-<tr>
-<td>w</td>
-<td>2</td>
-</tr>
-<tr>
-<td>x</td>
-<td>1</td>
-</tr>
-</tbody></table>
-<p>将数字相加，即可得到相应的权限组合，比如7&#x3D;4+2+1，代表具有读取、写入、执行的权限，5&#x3D;4+1，代表具有读取、执行权限，因此写法为</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 750 file.txt <span class="comment">#数字7、5、0分别对应用户、用户组、其他人所拥有的权限</span></span><br><span class="line"><span class="built_in">chmod</span> 777 file.txt <span class="comment">#表示对所有人都开放最大权限</span></span><br></pre></td></tr></table></figure></div>
-
-<p>而要想递归修改目录的权限，则应该添加<code>-R</code>选项，这能够为指定目录及其所有子目录和文件修改权限配置。</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> -R 755 mydir</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="4-3-修改文件和目录的所属"><a href="#4-3-修改文件和目录的所属" class="headerlink" title="4.3 修改文件和目录的所属"></a>4.3 修改文件和目录的所属</h3><p>要修改文件的所属，应该使用<code>chown</code>命令，写法为</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chown</span> [选项] 修改用户:修改组 文件或目录名</span><br></pre></td></tr></table></figure></div>
-
-<p>比如</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chown</span> newuser:newgroup file.txt <span class="comment">#这表示将文件file.txt的所属用户修改为newuser，所属组修改为newgroup</span></span><br></pre></td></tr></table></figure></div>
-
-<p>而要想给某个目录以及其所有内容修改权限，同样需要用到<code>-R</code>递归选项</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chown</span> -R newuser:newgroup mydir </span><br></pre></td></tr></table></figure></div>
-
-<p>另外还可以使用<code>chgrp</code>命令来修改文件目录的所属组</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chgrp</span> newgroup file.txt <span class="comment">#将文件的所属组修改为newgroup</span></span><br></pre></td></tr></table></figure></div>
-
-<p>同样也可以添加<code>-R</code>选项来进行递归修改</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chgrp</span> newgroup mydir </span><br></pre></td></tr></table></figure></div>
-
-<p>需要注意无论是<code>chown</code>还是<code>chgrp</code>命令都需要相关权限才能执行，一般是root用户或文件的所属者才能操作。</p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>用户权限</tag>
       </tags>
   </entry>
   <entry>
