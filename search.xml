@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello Hexo</title>
+    <url>/2023/11/06/hello-hexo/</url>
+    <content><![CDATA[<p>hexo博客算是初步部署好了，以后就在这里写写东西吧。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>令Azure VM的公共ip开放外部访问</title>
     <url>/2023/11/18/azure-access/</url>
     <content><![CDATA[<p>对于刚创建的Azure VM（VPS）来说，由于Azure防火墙的存在，默认情况下只有少数几个端口（如SSH服务的22端口）可供外部访问使用。而要想将更多的端口开放出来，则需要额外添加入站的端口规则。</p>
@@ -44,12 +50,6 @@
       <tags>
         <tag>Azure</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello Hexo</title>
-    <url>/2023/11/06/hello-hexo/</url>
-    <content><![CDATA[<p>hexo博客算是初步部署好了，以后就在这里写写东西吧。</p>
-]]></content>
   </entry>
   <entry>
     <title>Hello World</title>
@@ -442,7 +442,80 @@
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">-15 <span class="comment">#默认参数，令进程正常终止</span></span><br><span class="line">-9 <span class="comment">#强制终止进程</span></span><br><span class="line">-1 <span class="comment">#挂起信号，令进程重新加载配置文件或重启</span></span><br></pre></td></tr></table></figure></div>
 
 <p>另外还可以使用一些常用的命令和符号对进程进行前后台管理</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> <span class="built_in">command</span> &amp; <span class="comment">#令command命令在后台运行，而且不受终端关闭的影响</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">fg</span> %[<span class="built_in">jobs</span> <span class="built_in">id</span>] <span class="comment">#将后台进程转到前台，注意不是PID</span></span><br><span class="line"><span class="built_in">bg</span> %[<span class="built_in">jobs</span> <span class="built_in">id</span>] <span class="comment">#将前台进程转到后台，注意不是PID</span></span><br><span class="line"><span class="built_in">jobs</span> -l <span class="comment">#查看后台进程的状态信息</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> <span class="built_in">command</span> &amp; <span class="comment">#令command命令在后台运行，而且不受终端关闭的影响</span></span><br><span class="line"><span class="built_in">fg</span> %[<span class="built_in">jobs</span> <span class="built_in">id</span>] <span class="comment">#将后台进程转到前台，注意不是PID</span></span><br><span class="line"><span class="built_in">bg</span> %[<span class="built_in">jobs</span> <span class="built_in">id</span>] <span class="comment">#将前台进程转到后台，注意不是PID</span></span><br><span class="line"><span class="built_in">jobs</span> -l <span class="comment">#查看后台进程的状态信息</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-资源管理"><a href="#3-资源管理" class="headerlink" title="3. 资源管理"></a>3. 资源管理</h2><h3 id="3-1-实时整体资源监视"><a href="#3-1-实时整体资源监视" class="headerlink" title="3.1 实时整体资源监视"></a>3.1 实时整体资源监视</h3><p>如果要查看系统整体的实时资源情况，如CPU实时利用率，内存使用情况，实时进程列表等状态，可以输入<code>top</code>来进行快速了解，<code>top</code>能提供一个交互式的界面供用户查看和和过滤显示。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/linux-process-resource/top.png"
+                     
+                ></p>
+<p>这里首先可以看到当前时间和登录的用户数，后面的<code>load average: 0.00, 0.01, 0.00</code>分别代表在一分钟内、五分钟内、十五分钟内系统的平均负载。然后是实时任务数量，包括各状态（运行中、休眠、终止、僵尸状态）任务的显示。而%Cpu(s)即为CPU使用率的详细信息。接下来分别是内存和交换空间（与磁盘空间交换而来的虚拟内存）的实时信息，如内存总量、空闲内存情况、已使用空间等。最后是实时进程的详细信息，包括PID、启动用户、占用内存、使用CPU的百分比、累计占用CPU的时间等。</p>
+<p>此外还有如<code>htop</code>和<code>glances</code>这类类似于<code>top</code>的实时资源监视工具，同样可以直观地查看各系统资源的使用状况。</p>
+<ul>
+<li><p><strong>htop</strong><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/linux-process-resource/htop.png"
+                     
+                ></p>
+</li>
+<li><p><strong>glances</strong><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/linux-process-resource/glances.png"
+                     
+                ></p>
+</li>
+</ul>
+<h3 id="3-2-瞬时资源信息查看"><a href="#3-2-瞬时资源信息查看" class="headerlink" title="3.2 瞬时资源信息查看"></a>3.2 瞬时资源信息查看</h3><ul>
+<li><strong>CPU资源信息</strong></li>
+</ul>
+<p>要想查看CPU的详细架构和配置信息，可以使用<code>lscpu</code>命令，能够得到CPU架构型号、总核数、时钟频率等参数。</p>
+<p>而<code>uptime</code>能用于查看系统运行状态和平均负载，得到返回结果例如</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">11:34:23 up 14 days, 18:22,  2 users,  load average: 0.43, 0.11, 0.04</span><br><span class="line"></span><br><span class="line">当前时间 运行时间 当前登录用户数 平均负载 </span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><strong>内存资源信息</strong></li>
+</ul>
+<p>如果要查看内存相关信息，可以选择<code>free</code>命令，搭配一些常用的选项<code>-h</code>、<code>-m</code>、<code>-s</code>等，例如</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ free -hs 5 <span class="comment">#以五秒为间隔输出当前的内存瞬时状态，并以易读状态显示 </span></span><br></pre></td></tr></table></figure></div>
+
+<p>得到返回类似于<code>top</code>下的内存信息</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">               total        used        free      shared  buff/cache   available</span><br><span class="line">Mem:           884Mi       343Mi        71Mi       3.0Mi       469Mi       360Mi</span><br><span class="line">Swap:             0B          0B          0B</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><strong>磁盘资源信息</strong></li>
+</ul>
+<p>通过使用<code>df</code>命令搭配一些常用选项可以查看到文件系统的磁盘空间的使用情况</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">df</span> -h <span class="comment">#以易读方式显示磁盘使用情况</span></span><br></pre></td></tr></table></figure></div>
+
+<p>以其中一行为例，得到返回结果如</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/root        62G  3.5G   59G   6% /</span><br></pre></td></tr></table></figure></div>
+
+<p>这表示文件系统为<code>/dev/root</code>的根文件系统，总容量为62GB，已使用空间为3.5GB，剩余可用空间为59GB，空间利用率为6%，文件系统的挂载点为<code>/</code>即根目录。</p>
+<p>另外还可以使用<code>lsblk</code>来树状显示磁盘的块设备和分区的整体结构信息，得到返回结果如</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">NAME    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS</span><br><span class="line">loop0     7:0    0  63.5M  1 loop /snap/core20/2015</span><br><span class="line">loop1     7:1    0 111.9M  1 loop /snap/lxd/24322</span><br><span class="line">loop2     7:2    0  40.9M  1 loop /snap/snapd/20290</span><br><span class="line">sda       8:0    0    64G  0 disk </span><br><span class="line">├─sda1    8:1    0  63.9G  0 part /</span><br><span class="line">├─sda14   8:14   0     4M  0 part </span><br><span class="line">└─sda15   8:15   0   106M  0 part /boot/efi</span><br><span class="line">sdb       8:16   0     4G  0 disk </span><br><span class="line">└─sdb1    8:17   0     4G  0 part /mnt</span><br><span class="line">sr0      11:0    1   628K  0 rom  </span><br></pre></td></tr></table></figure></div>
+
+<p>返回信息包括了设备名，主次设备号，是否可读写和可移动，总容量大小，设备类型，挂载点这些信息。可以知道其中<code>sda</code>的<code>disk</code>即为磁盘类型，其下分别有三个磁盘分区，而<code>sr0</code>为<code>rom</code>类型的只读光驱存储器。</p>
+<ul>
+<li><strong>网络资源信息</strong></li>
+</ul>
+<p>可以采用<code>netstat</code>或<code>ss</code>来显示系统网络状态信息，比如执行</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -tunlp</span><br></pre></td></tr></table></figure></div>
+
+<p>这表示查看当前所有的TCP和UDP网络连接，以数字形式显示ip地址和端口及端口监听状态，并将每个和连接相关的进程及其PID显示出来。得到结果如</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">Active Internet connections (only servers)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name  </span><br><span class="line">tcp        0      0 0.0.0.0:443             0.0.0.0:*               LISTEN      176089/nginx: maste </span><br><span class="line">udp        0      0 127.0.0.53:53           0.0.0.0:*                           47883/systemd-resol </span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+
+
+
+
 
 
 
